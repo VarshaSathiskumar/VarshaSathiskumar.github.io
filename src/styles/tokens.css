@@ -1,0 +1,41 @@
+/* Design tokens — eyedropped from reference/*.png (About, Experience, ImpactMetrics,
+   Project, Resume, TechStack, Contact). Every section should read colors, fonts,
+   borders and shadows from these variables instead of hard-coding hex values. */
+
+:root {
+  /* Core palette */
+  --color-black: #111111;
+  --color-white: #ffffff;
+  --color-bg-offwhite: #f7f5f2;
+
+  /* Crimson accent: bright red for headline/display text and links,
+     darker red for solid-filled buttons/tags */
+  --color-accent: #cf364c;
+  --color-accent-strong: #a22738;
+
+  /* Text */
+  --color-text: var(--color-black);
+  --color-text-muted: #6b6b6b;
+
+  /* "Open to work" pill */
+  --color-pill-bg: #e4f6e7;
+  --color-pill-text: #316743;
+  --color-pill-dot: #4c9c65;
+
+  /* Card / button border + solid offset drop shadow (no blur) */
+  --border-width: 2px;
+  --border-color: var(--color-black);
+  --shadow-offset: 6px;
+  --shadow-color: var(--color-black);
+  --shadow-hard: var(--shadow-offset) var(--shadow-offset) 0 0 var(--shadow-color);
+
+  --radius-sm: 4px;
+  --radius-pill: 999px;
+
+  /* Type */
+  --font-headline: "Anton", "Archivo Black", "Arial Narrow", sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --tracking-label: 0.08em;
+}
