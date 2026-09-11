@@ -1,0 +1,57 @@
+/* Full-viewport section layout.
+   Each top-level portfolio section fills exactly one screen's worth of
+   height below the fixed navbar and never scrolls internally. The
+   primary section-to-section navigation (one wheel gesture = one
+   section, nav link clicks) is driven by JS —
+   src/components/section_scroll.js and the scrollIntoView calls in
+   navbar.js/about.js. CSS scroll-snap is kept only as "proximity" (see
+   below) to catch input the JS doesn't own, such as scrollbar dragging
+   or keyboard paging.
+   --navbar-h is measured from the real rendered navbar
+   (src/components/navbar.js) and kept in sync on resize; the value here
+   is only a first-paint fallback before that JS runs. */
+
+:root {
+  --navbar-h: 4.5rem;
+}
+
+html {
+  /* proximity, not mandatory: a defensive fallback for input the JS
+     wheel handler doesn't own (scrollbar drag, touch swipe, keyboard) —
+     "mandatory" risks fighting the JS-driven scrollIntoView calls used
+     for nav links and wheel navigation. */
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+
+.section {
+  height: calc(100svh - var(--navbar-h));
+  min-height: calc(100svh - var(--navbar-h));
+  scroll-snap-align: start;
+  scroll-margin-top: var(--navbar-h);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* Reference mockups (About, Contact) anchor content near the top of
+     the section with a modest bottom margin, not vertically centered. */
+  justify-content: flex-start;
+}
+
+@media (max-width: 640px) {
+  /* The one-screen-per-section guarantee targets standard desktop
+     sizes. On phones, forcing every section into a hard-clipped
+     viewport-height box would make dense sections illegible, so mobile
+     falls back to a natural height with normal scrolling instead. */
+  .section {
+    height: auto;
+    min-height: calc(100svh - var(--navbar-h));
+    overflow: visible;
+    padding-block: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
