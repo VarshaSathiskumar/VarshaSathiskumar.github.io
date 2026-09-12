@@ -18,6 +18,7 @@
   flex: none;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: clamp(0.75rem, 1.6vw, 1.25rem);
   margin-top: clamp(0.9rem, 2.4vh, 1.5rem);
 }
@@ -32,8 +33,7 @@
 .projects__eyebrow-rule--grow {
   flex: 1;
   width: auto;
-  background: var(--color-text-muted);
-  opacity: 0.35;
+  background: var(--color-black);
 }
 
 .projects__eyebrow-label {
@@ -75,7 +75,10 @@
   font-weight: var(--font-chunky-weight);
   font-stretch: var(--font-chunky-stretch);
   letter-spacing: var(--font-chunky-tracking);
-  font-size: clamp(2rem, 2.6vw + 2vh, 3.75rem);
+  /* The outer min() caps growth to a width-proportional ceiling so a
+     tall, narrow viewport (a resized desktop window, not just mobile)
+     can't inflate the vh term past what "SELECTED"/"PROJECTS" can fit. */
+  font-size: min(clamp(2rem, 2.6vw + 2vh, 3.75rem), 9vw);
   line-height: 0.98;
   text-transform: uppercase;
 }
@@ -92,7 +95,7 @@
   flex: none;
   display: flex;
   border: var(--border-width) solid var(--border-color);
-  border-radius: var(--radius-card);
+  border-radius: 0;
   box-shadow: var(--shadow-hard);
   overflow: hidden;
 }
@@ -157,7 +160,7 @@
   min-height: 0;
   background: var(--color-white);
   border: var(--border-width) solid var(--border-color);
-  border-radius: var(--radius-card);
+  border-radius: 0;
   box-shadow: var(--shadow-hard);
   overflow: hidden;
 }
@@ -307,7 +310,7 @@
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   border: var(--border-width) solid var(--border-color);
-  border-radius: var(--radius-card);
+  border-radius: 0;
   box-shadow: var(--shadow-hard);
 }
 
@@ -316,5 +319,11 @@
 @media (max-width: 640px) {
   .project-card {
     width: min(85vw, 22rem);
+  }
+
+  /* Touch scrolling is self-evident on phones; the desktop-only hint
+     text has no room and would force the eyebrow row to overflow. */
+  .projects__scroll-hint {
+    display: none;
   }
 }

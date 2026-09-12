@@ -1,3 +1,11 @@
+const company_logo_base_path = "src/assets/company-logos"
+
+const company_logos = {
+  "NociQuant Inc.": `${company_logo_base_path}/nociquant.png`,
+  "Kimberly Clark": `${company_logo_base_path}/kimberly-clark.png`,
+  "NIT, Trichy": `${company_logo_base_path}/nitt.png`
+}
+
 const experience_content = {
   heading: "Experience",
   eyebrow: "Career_Ledger",
@@ -106,7 +114,7 @@ const render_role_card = (role) => `
   <article class="experience-card" style="--role-color: ${role.color};">
     <div class="experience-card__label">
       <span class="experience-card__number">${role.number}</span>
-      <span class="experience-card__logo" aria-hidden="true"></span>
+      <img src="${company_logos[role.company]}" alt="${role.company} logo" class="experience-card__logo">
       <span class="experience-card__company">${role.company}</span>
     </div>
 

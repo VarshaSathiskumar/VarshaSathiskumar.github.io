@@ -21,7 +21,12 @@
   font-weight: var(--font-chunky-weight);
   font-stretch: var(--font-chunky-stretch);
   letter-spacing: var(--font-chunky-tracking);
-  font-size: clamp(2.5rem, 4vw + 2.5vh, 5rem);
+  /* The outer min() caps growth to a width-proportional ceiling so a
+     tall, narrow viewport (a resized desktop window, not just mobile)
+     can't inflate the vh term past what the section's width can hold —
+     this single unbreakable word would otherwise clip against the
+     section's overflow:hidden. */
+  font-size: min(clamp(2.5rem, 4vw + 2.5vh, 5rem), 6.2vw);
   line-height: 0.95;
   color: var(--color-black);
   text-transform: uppercase;
@@ -46,6 +51,7 @@
   flex: none;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: clamp(0.75rem, 1.6vw, 1.25rem);
   margin-top: clamp(0.9rem, 2.4vh, 1.5rem);
 }
@@ -60,8 +66,8 @@
 .experience__eyebrow-rule--grow {
   flex: 1;
   width: auto;
-  background: var(--color-text-muted);
-  opacity: 0.35;
+  height: var(--border-width);
+  background: var(--color-black);
 }
 
 .experience__eyebrow-label {
@@ -124,7 +130,7 @@
   min-height: 0;
   background: var(--color-white);
   border: var(--border-width) solid var(--border-color);
-  border-radius: var(--radius-card);
+  border-radius: 0;
   box-shadow: var(--shadow-hard);
   overflow: hidden;
 }
@@ -151,6 +157,8 @@
   aspect-ratio: 1 / 1;
   background: var(--color-bg-offwhite);
   border-radius: var(--radius-sm);
+  object-fit: contain;
+  padding: 0.2rem;
 }
 
 .experience-card__company {
@@ -190,12 +198,14 @@
 
 .experience-card__title-row {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-wrap: nowrap;
   gap: 0.6rem;
 }
 
 .experience-card__title {
+  flex: 1 1 auto;
+  min-width: 0;
   margin: 0;
   font-family: var(--font-chunky);
   font-weight: var(--font-chunky-weight);
@@ -208,6 +218,7 @@
 
 .experience-card__badge {
   flex: none;
+  margin-top: 0.3rem;
   padding: 0.2rem 0.55rem;
   border: 1.5px solid var(--role-color);
   border-radius: var(--radius-pill);
@@ -297,6 +308,12 @@
   .experience-card {
     width: min(85vw, 22rem);
   }
+
+  /* Touch scrolling is self-evident on phones; the desktop-only hint
+     text has no room and would force the eyebrow row to overflow. */
+  .experience__scroll-hint {
+    display: none;
+  }
 }
 
 /* ==================== Impact Metrics ==================== */
@@ -310,6 +327,7 @@
 .impact-metrics__eyebrow {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: clamp(0.75rem, 1.6vw, 1.25rem);
   margin-top: clamp(0.9rem, 3.15vh, 2rem);
 }
@@ -324,14 +342,13 @@
 .impact-metrics__eyebrow-rule--grow {
   flex: 1;
   width: auto;
-  background: var(--color-text-muted);
-  opacity: 0.35;
+  background: var(--color-black);
 }
 
 .impact-metrics__eyebrow-label {
   font-family: var(--font-chunky);
   font-weight: 900;
-  font-size: clamp(1.75rem, 2vw + 0.5vh, 2.4rem);
+  font-size: clamp(1.3rem, 2vw + 0.5vh, 2.4rem);
   letter-spacing: -0.01em;  
   text-transform: uppercase;
   color: var(--color-black);
@@ -352,9 +369,15 @@
   flex-direction: column;
   min-width: 0;
   border: var(--border-width) solid var(--border-color);
-  border-radius: var(--radius-card);
+  border-radius: 0;
   box-shadow: var(--shadow-hard);
   overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px) 0 0 var(--shadow-color);
 }
 
 .metric-card__label {
@@ -457,18 +480,18 @@
   margin-top: clamp(0.75rem, 1.8vh, 1.25rem);
   background: var(--color-white);
   border: var(--border-width) solid var(--border-color);
-  border-radius: var(--radius-card);
+  border-radius: 0;
   box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0 var(--color-accent);
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
 }
 
 .impact-metrics__publication:hover,
 .impact-metrics__publication:focus-visible {
-  transform: translate(2px, 2px);
-  box-shadow: calc(var(--shadow-offset) - 2px) calc(var(--shadow-offset) - 2px) 0 0 var(--color-accent);
+  transform: translateY(-3px);
+  box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px) 0 0 var(--color-accent);
 }
 
 .impact-metrics__publication-label {

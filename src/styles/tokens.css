@@ -28,6 +28,12 @@
   --color-pill-text: #316743;
   --color-pill-dot: #4c9c65;
 
+  /* Tinted icon swatches (About Statement "What I Do" / "What's Next"). */
+  --color-icon-tint-neutral-bg: #ececea;
+  --color-icon-tint-neutral-fg: var(--color-black);
+  --color-icon-tint-accent-bg: var(--color-pill-bg);
+  --color-icon-tint-accent-fg: var(--color-pill-text);
+
   /* Card / button border + solid offset drop shadow (no blur) */
   --border-width: 2px;
   --border-color: var(--color-black);
