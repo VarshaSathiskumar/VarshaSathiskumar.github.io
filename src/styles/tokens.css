@@ -17,6 +17,12 @@
   --color-text: var(--color-black);
   --color-text-muted: #6b6b6b;
 
+  /* Dark surface (Contact section): near-black background with
+     white/translucent-white text on top of it. */
+  --color-bg-dark: #111111;
+  --color-text-on-dark-muted: rgba(255, 255, 255, 0.55);
+  --color-border-on-dark: rgba(255, 255, 255, 0.3);
+
   /* "Open to work" pill */
   --color-pill-bg: #e4f6e7;
   --color-pill-text: #316743;
@@ -36,6 +42,9 @@
   /* Diagonal-stripe placeholder fill (photo/illustration boxes) */
   --color-placeholder-a: #fdf2f3;
   --color-placeholder-b: #efe5e6;
+
+  /* Faint graph-paper grid (Resume section background). */
+  --color-grid-line: rgba(17, 17, 17, 0.06);
 
   /* Type — eyedropped letterforms are a rounded geometric bold sans
      (display + body), a monospace for small-caps labels, and a script
