@@ -34,12 +34,12 @@
 
 .about__first-name {
   color: var(--color-accent);
-  font-size: clamp(4.9rem, 6.2vw + 6.2vh, 9.2rem);
+  font-size: clamp(2.8rem, 11vw, 9.2rem);
 }
 
 .about__last-name {
   color: var(--color-black);
-  font-size: clamp(2.75rem, 3.6vw + 3.45vh, 5.25rem);
+  font-size: clamp(1.8rem, 6.5vw, 5.25rem);
   margin-top: 0.15em;
 }
 
