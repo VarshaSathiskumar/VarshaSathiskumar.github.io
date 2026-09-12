@@ -33,6 +33,24 @@ const render_navbar = (navbar_root) => {
   `
 }
 
+const sync_navbar_height = (navbar_root) => {
+  const navbar = navbar_root.querySelector(".navbar")
+  if (!navbar) return
+
+  const set_navbar_height = () => {
+    document.documentElement.style.setProperty("--navbar-h", `${navbar.offsetHeight}px`)
+  }
+
+  set_navbar_height()
+
+  if (typeof ResizeObserver === "undefined") {
+    window.addEventListener("resize", set_navbar_height)
+    return
+  }
+
+  new ResizeObserver(set_navbar_height).observe(navbar)
+}
+
 const attach_nav_link_listeners = () => {
   const nav_links = document.querySelectorAll("[data-nav-link]")
 
@@ -52,5 +70,6 @@ export const initialize_navbar = () => {
   if (!navbar_root) return
 
   render_navbar(navbar_root)
+  sync_navbar_height(navbar_root)
   attach_nav_link_listeners()
 }

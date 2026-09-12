@@ -30,12 +30,29 @@
   --shadow-hard: var(--shadow-offset) var(--shadow-offset) 0 0 var(--shadow-color);
 
   --radius-sm: 4px;
+  --radius-card: 8px;
   --radius-pill: 999px;
 
-  /* Type */
-  --font-headline: "Anton", "Archivo Black", "Arial Narrow", sans-serif;
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Diagonal-stripe placeholder fill (photo/illustration boxes) */
+  --color-placeholder-a: #fdf2f3;
+  --color-placeholder-b: #efe5e6;
+
+  /* Type — eyedropped letterforms are a rounded geometric bold sans
+     (display + body), a monospace for small-caps labels, and a script
+     face for the pull-quote. */
+  --font-display: "Poppins", system-ui, sans-serif;
+  --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-script: "Caveat", cursive;
+
+  /* Heavy grotesk used for every display heading and big metric figure
+     (e.g. "VARSHA", "4+", "TECH STACK", "EXPERIENCE HIGHLIGHTS") —
+     stretched wide with font-stretch and tightened with negative
+     letter-spacing for the reference's compressed poster look. */
+  --font-chunky: "Archivo", var(--font-display);
+  --font-chunky-weight: 900;
+  --font-chunky-stretch: 118%;
+  --font-chunky-tracking: -0.02em;
 
   --tracking-label: 0.08em;
 }
