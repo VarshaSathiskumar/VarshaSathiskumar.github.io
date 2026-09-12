@@ -46,6 +46,13 @@
   /* Faint graph-paper grid (Resume section background). */
   --color-grid-line: rgba(17, 17, 17, 0.06);
 
+  /* Impact Metrics card fills — one solid color per metric. */
+  --color-metric-green: #2f6a4e;
+  --color-metric-blue: #3762e3;
+  --color-metric-magenta: #b22e5b;
+  --color-metric-orange: #ab4b21;
+  --color-metric-purple: #743ee4;
+
   /* Type — eyedropped letterforms are a rounded geometric bold sans
      (display + body), a monospace for small-caps labels, and a script
      face for the pull-quote. */
