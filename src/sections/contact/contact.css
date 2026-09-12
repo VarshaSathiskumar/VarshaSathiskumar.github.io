@@ -131,7 +131,7 @@
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   border: var(--border-width) solid var(--border-color);
-  border-radius: var(--radius-card);
+  border-radius: 0;
   box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0 var(--color-accent);
   cursor: pointer;
 }
