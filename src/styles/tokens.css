@@ -45,10 +45,14 @@
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --font-script: "Caveat", cursive;
 
-  /* Wider, chunkier rounded face used only for the hero name and big
-     stat values (e.g. "VARSHA", "4+") — the reference's display face is
-     noticeably wider per-glyph than Poppins at the same cap-height. */
-  --font-chunky: "Baloo 2", var(--font-display);
+  /* Heavy grotesk used for every display heading and big metric figure
+     (e.g. "VARSHA", "4+", "TECH STACK", "EXPERIENCE HIGHLIGHTS") —
+     stretched wide with font-stretch and tightened with negative
+     letter-spacing for the reference's compressed poster look. */
+  --font-chunky: "Archivo", var(--font-display);
+  --font-chunky-weight: 900;
+  --font-chunky-stretch: 118%;
+  --font-chunky-tracking: -0.02em;
 
   --tracking-label: 0.08em;
 }
