@@ -1,1 +1,320 @@
-/* Projects section styles: implement once the reference is matched. */
+#projects {
+  padding: clamp(1.05rem, 3.15vh, 2.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.projects__grid {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+/* ---- Eyebrow: "— PROJECT_INDEX ——— SCROLL SIDEWAYS →" ---- */
+
+.projects__eyebrow {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  margin-top: clamp(0.9rem, 2.4vh, 1.5rem);
+}
+
+.projects__eyebrow-rule {
+  flex: none;
+  width: clamp(2rem, 3vw, 3.25rem);
+  height: var(--border-width);
+  background: var(--color-black);
+}
+
+.projects__eyebrow-rule--grow {
+  flex: 1;
+  width: auto;
+  background: var(--color-text-muted);
+  opacity: 0.35;
+}
+
+.projects__eyebrow-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(1rem, 0.6vw + 0.6vh, 1.25rem);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-black);
+  white-space: nowrap;
+}
+
+.projects__scroll-hint {
+  flex: none;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.7rem, 0.35vw + 0.35vh, 0.8rem);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* ---- Header row: heading (left) + WORK/PERSONAL toggle (right) ---- */
+
+.projects__header-row {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: clamp(0.75rem, 2vh, 1.25rem);
+}
+
+.projects__heading {
+  margin: 0;
+  font-family: var(--font-chunky);
+  font-weight: var(--font-chunky-weight);
+  font-stretch: var(--font-chunky-stretch);
+  letter-spacing: var(--font-chunky-tracking);
+  font-size: clamp(2rem, 2.6vw + 2vh, 3.75rem);
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.projects__heading-black {
+  color: var(--color-black);
+}
+
+.projects__heading-accent {
+  color: var(--color-accent);
+}
+
+.projects__toggle {
+  flex: none;
+  display: flex;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-hard);
+  overflow: hidden;
+}
+
+.projects__toggle-option {
+  flex: none;
+  padding: clamp(0.7rem, 1.6vh, 1rem) clamp(1.1rem, 1.8vw, 1.5rem);
+  background: var(--color-white);
+  color: var(--color-black);
+  border: none;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.75rem, 0.4vw + 0.4vh, 0.9rem);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.projects__toggle-option--active {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+/* ---- Horizontally-scrolling project cards ---- */
+
+.projects__scroller {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  gap: clamp(1.25rem, 2.2vw, 2rem);
+  margin-top: clamp(1.25rem, 3vh, 2rem);
+  padding-bottom: clamp(0.75rem, 1.8vh, 1.25rem);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scrollbar-color: var(--color-text-muted) var(--color-bg-offwhite);
+}
+
+.projects__scroller::-webkit-scrollbar {
+  height: 10px;
+}
+
+.projects__scroller::-webkit-scrollbar-track {
+  background: var(--color-bg-offwhite);
+  border-radius: var(--radius-pill);
+}
+
+.projects__scroller::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: var(--radius-pill);
+}
+
+.project-card {
+  flex: none;
+  scroll-snap-align: start;
+  width: clamp(20rem, 30vw, 25rem);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--color-white);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-hard);
+  overflow: hidden;
+}
+
+.project-card[hidden] {
+  display: none;
+}
+
+.project-card__header {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: clamp(0.7rem, 1.6vh, 1rem) clamp(1rem, 1.8vw, 1.4rem);
+  background: var(--project-color);
+  color: var(--color-white);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.75rem, 0.4vw + 0.4vh, 0.9rem);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.project-card__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(0.9rem, 1.7vw, 1.15rem);
+}
+
+.project-card__name {
+  margin: 0;
+  font-family: var(--font-chunky);
+  font-weight: var(--font-chunky-weight);
+  font-stretch: var(--font-chunky-stretch);
+  letter-spacing: var(--font-chunky-tracking);
+  font-size: clamp(1.15rem, 0.9vw + 0.9vh, 1.5rem);
+  line-height: 1.1;
+  color: var(--color-black);
+  text-transform: uppercase;
+}
+
+.project-card__one-liner {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-body);
+  font-size: clamp(0.8rem, 0.32vw + 0.32vh, 0.9rem);
+  line-height: 1.35;
+  color: var(--color-black);
+}
+
+.project-card__divider {
+  margin: clamp(0.5rem, 1.1vh, 0.7rem) 0;
+  border: none;
+  border-top: 1.5px dashed var(--color-text-muted);
+}
+
+.project-card__description {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(0.8rem, 0.32vw + 0.32vh, 0.9rem);
+  line-height: 1.35;
+  color: var(--color-black);
+}
+
+.project-card__metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.5rem, 1.1vw, 0.7rem);
+  margin-top: clamp(0.6rem, 1.3vh, 0.85rem);
+}
+
+.project-card__metric-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+  padding: clamp(0.5rem, 1.1vh, 0.7rem) clamp(0.6rem, 1.2vw, 0.8rem);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+.project-card__metric-value {
+  font-family: var(--font-chunky);
+  font-weight: var(--font-chunky-weight);
+  font-stretch: var(--font-chunky-stretch);
+  letter-spacing: var(--font-chunky-tracking);
+  font-size: clamp(0.9rem, 0.55vw + 0.55vh, 1.15rem);
+  color: var(--project-color);
+  overflow-wrap: break-word;
+}
+
+.project-card__metric-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.65rem, 0.3vw + 0.3vh, 0.75rem);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.project-card__tech-label {
+  margin-top: clamp(0.6rem, 1.3vh, 0.85rem);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.65rem, 0.3vw + 0.3vh, 0.75rem);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.project-card__tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.45rem;
+}
+
+.project-card__tech-tag {
+  padding: 0.25rem 0.5rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.65rem, 0.3vw + 0.3vh, 0.75rem);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.project-card__link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: clamp(0.55rem, 1.2vh, 0.75rem) clamp(0.85rem, 1.3vw, 1.1rem);
+  background: var(--project-color);
+  color: var(--color-white);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.75rem, 0.4vw + 0.4vh, 0.85rem);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-hard);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 640px) {
+  .project-card {
+    width: min(85vw, 22rem);
+  }
+}
