@@ -60,8 +60,8 @@
 .experience__eyebrow-rule--grow {
   flex: 1;
   width: auto;
-  background: var(--color-text-muted);
-  opacity: 0.35;
+  height: var(--border-width);
+  background: var(--color-black);
 }
 
 .experience__eyebrow-label {
@@ -151,6 +151,8 @@
   aspect-ratio: 1 / 1;
   background: var(--color-bg-offwhite);
   border-radius: var(--radius-sm);
+  object-fit: contain;
+  padding: 0.2rem;
 }
 
 .experience-card__company {
@@ -190,12 +192,14 @@
 
 .experience-card__title-row {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-wrap: nowrap;
   gap: 0.6rem;
 }
 
 .experience-card__title {
+  flex: 1 1 auto;
+  min-width: 0;
   margin: 0;
   font-family: var(--font-chunky);
   font-weight: var(--font-chunky-weight);
@@ -208,6 +212,7 @@
 
 .experience-card__badge {
   flex: none;
+  margin-top: 0.3rem;
   padding: 0.2rem 0.55rem;
   border: 1.5px solid var(--role-color);
   border-radius: var(--radius-pill);
