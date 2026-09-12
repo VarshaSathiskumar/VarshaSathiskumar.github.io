@@ -1,46 +1,47 @@
+const tech_icon_base_path = "src/assets/tech-icons"
+
 const tech_stack_items = [
-  { label: "Python", logo_src: "" },
-  { label: "C#", logo_src: "" },
-  { label: "SQL", logo_src: "" },
-  { label: "JavaScript", logo_src: "" },
-  { label: "TypeScript", logo_src: "" },
-  { label: "HTML", logo_src: "" },
-  { label: "CSS", logo_src: "" },
-  { label: "Microsoft Azure", logo_src: "" },
-  { label: "Docker", logo_src: "" },
-  { label: "Kubernetes", logo_src: "" },
-  { label: "React", logo_src: "" },
-  { label: "Node.js", logo_src: "" },
-  { label: "FastAPI", logo_src: "" },
-  { label: "LangChain", logo_src: "" },
-  { label: "LangGraph", logo_src: "" },
-  { label: "Hugging Face", logo_src: "" },
-  { label: "Redis", logo_src: "" },
-  { label: "ML Libraries", logo_src: "" }
+  { label: "Python", logo_src: `${tech_icon_base_path}/python.svg` },
+  { label: "C#", logo_src: `${tech_icon_base_path}/csharp.svg` },
+  { label: "SQL", logo_src: `${tech_icon_base_path}/postgresql.svg` },
+  { label: "JavaScript", logo_src: `${tech_icon_base_path}/javascript.svg` },
+  { label: "TypeScript", logo_src: `${tech_icon_base_path}/typescript.svg` },
+  { label: "HTML", logo_src: `${tech_icon_base_path}/html5.svg` },
+  { label: "CSS", logo_src: `${tech_icon_base_path}/css.svg` },
+  { label: "Microsoft Azure", label_html: "Microsoft<br>Azure", logo_src: `${tech_icon_base_path}/azure.svg` },
+  { label: "Docker", logo_src: `${tech_icon_base_path}/docker.svg` },
+  { label: "Kubernetes", logo_src: `${tech_icon_base_path}/kubernetes.svg` },
+  { label: "React", logo_src: `${tech_icon_base_path}/react.svg` },
+  { label: "Node.js", logo_src: `${tech_icon_base_path}/nodejs.svg` },
+  { label: "FastAPI", logo_src: `${tech_icon_base_path}/fastapi.svg` },
+  { label: "LangChain", logo_src: `${tech_icon_base_path}/langchain.png` },
+  { label: "LangGraph", logo_src: `${tech_icon_base_path}/langgraph.png` },
+  { label: "Hugging Face", logo_src: `${tech_icon_base_path}/huggingface.svg` },
+  { label: "Redis", logo_src: `${tech_icon_base_path}/redis.svg` },
+  { label: "ML Libraries", logo_svg: `
+    <svg viewBox="0 0 24 24" width="100%" height="100%" role="img" aria-label="ML Libraries">
+      <title>ML Libraries</title>
+      <circle cx="12" cy="12" r="2.6" fill="#111111"/>
+      <circle cx="4.5" cy="6" r="2" fill="#111111"/>
+      <circle cx="19.5" cy="6" r="2" fill="#111111"/>
+      <circle cx="4.5" cy="18" r="2" fill="#111111"/>
+      <circle cx="19.5" cy="18" r="2" fill="#111111"/>
+      <path fill="none" stroke="#111111" stroke-width="1.4" d="M12 12L4.5 6M12 12l7.5-6M12 12l-7.5 6M12 12l7.5 6"/>
+    </svg>
+  ` }
 ]
 
-const placeholder_icon_svg = `
-  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
-    <path fill="none" stroke="currentColor" stroke-width="1.6" d="M4 5.5h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1Z"/>
-    <circle cx="8.3" cy="10" r="1.4" fill="currentColor" stroke="none"/>
-    <path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="m4 16.5 4.8-4.8a1 1 0 0 1 1.4 0l3.3 3.3M14 15l2.3-2.3a1 1 0 0 1 1.4 0L21 15.9"/>
-  </svg>
-`
-
 const render_tech_stack_item = (item) => {
-  const image_content = item.logo_src
-    ? `<img src="${item.logo_src}" alt="${item.label} logo" class="tech-stack-item__img">`
-    : `
-      ${placeholder_icon_svg}
-      <span class="tech-stack-item__placeholder-text">Drop an image</span>
-    `
+  const image_content = item.logo_svg
+    ? item.logo_svg
+    : `<img src="${item.logo_src}" alt="${item.label} logo" class="tech-stack-item__img">`
 
   return `
     <div class="tech-stack-item">
       <div class="tech-stack-item__box">
         ${image_content}
       </div>
-      <span class="tech-stack-item__label">${item.label}</span>
+      <span class="tech-stack-item__label">${item.label_html || item.label}</span>
     </div>
   `
 }

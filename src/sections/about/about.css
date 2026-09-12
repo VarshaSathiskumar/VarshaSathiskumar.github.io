@@ -288,7 +288,7 @@
 }
 
 .tech-stack__heading {
-  margin: 0;
+  margin: clamp(0.9rem, 3.15vh, 2rem) 0 0;
   font-family: var(--font-chunky);
   font-weight: var(--font-chunky-weight);
   font-stretch: var(--font-chunky-stretch);
@@ -300,7 +300,7 @@
 }
 
 .tech-stack__divider {
-  margin: clamp(1.2rem, 3vh, 2rem) 0 0;
+  margin: clamp(1.8rem, 4.5vh, 3rem) 0 0;
   border: none;
   border-top: var(--border-width) solid var(--border-color);
 }
@@ -308,7 +308,7 @@
 .tech-stack__items {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  gap: clamp(1rem, 1.8vw, 1.75rem);
+  gap: clamp(1rem, 2.6vw, 2.6rem);
   margin-top: clamp(1.8rem, 4vh, 3rem);
 }
 
@@ -322,52 +322,28 @@
 
 .tech-stack-item__box {
   width: 100%;
+  max-width: clamp(4.5rem, 6vw, 6.5rem);
   aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 0.5rem;
   background: var(--color-white);
   border: var(--border-width) solid var(--border-color);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-hard);
-  position: relative;
 }
 
-.tech-stack-item__box::before {
-  content: "";
-  position: absolute;
-  inset: 12%;
-  border: 1.5px dashed var(--color-text-muted);
-  border-radius: var(--radius-sm);
-}
-
-.tech-stack-item__box .tech-stack-item__placeholder-text,
+.tech-stack-item__box .tech-stack-item__img,
 .tech-stack-item__box svg {
-  position: relative;
-  color: var(--color-text-muted);
-}
-
-.tech-stack-item__placeholder-text {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: clamp(0.7rem, 0.4vw + 0.4vh, 0.85rem);
-  text-align: center;
-  line-height: 1.15;
-}
-
-.tech-stack-item__img {
-  position: relative;
-  max-width: 55%;
-  max-height: 55%;
+  width: 42%;
+  height: 42%;
   object-fit: contain;
 }
 
 .tech-stack-item__label {
   font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: clamp(0.6rem, 0.35vw + 0.3vh, 0.7rem);
+  font-weight: 900;
+  font-size: clamp(0.8rem, 0.5vw + 0.3vh, 1rem);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-black);
