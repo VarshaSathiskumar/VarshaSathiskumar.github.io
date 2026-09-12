@@ -11,6 +11,7 @@
 .resume__eyebrow {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: clamp(0.75rem, 1.6vw, 1.25rem);
   margin-top: clamp(0.9rem, 3.15vh, 2rem);
 }
@@ -50,7 +51,9 @@
 }
 
 .resume__content {
-  flex: none;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .resume__heading {
@@ -61,7 +64,10 @@
   font-weight: var(--font-chunky-weight);
   font-stretch: var(--font-chunky-stretch);
   letter-spacing: var(--font-chunky-tracking);
-  font-size: clamp(2.75rem, 4vw + 3vh, 5.5rem);
+  /* The outer min() caps growth to a width-proportional ceiling so a
+     tall, narrow viewport (a resized desktop window, not just mobile)
+     can't inflate the vh term past what the column can hold. */
+  font-size: min(clamp(2.75rem, 4vw + 3vh, 5.5rem), 11vw);
   line-height: 1.02;
   text-transform: uppercase;
 }

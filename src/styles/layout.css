@@ -29,7 +29,15 @@ html {
   min-height: calc(100svh - var(--navbar-h));
   scroll-snap-align: start;
   scroll-margin-top: var(--navbar-h);
-  overflow: hidden;
+  /* overflow-y:auto (not hidden) is a safety valve, not the intended
+     path: at normal viewport heights content fits and no scrollbar
+     ever appears. On a short desktop window (browser not maximized,
+     an external display in a squat aspect ratio) the vh-based clamps
+     can't shrink text indefinitely, so without this the section would
+     silently clip and hide real content instead of letting it scroll
+     into view. */
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   /* Reference mockups (About, Contact) anchor content near the top of

@@ -167,3 +167,18 @@
     border-top: 1px solid #f0f0f0;
   }
 }
+
+@media (max-width: 360px) {
+  .navbar {
+    gap: 0.75rem;
+    padding: 1rem 0.85rem;
+  }
+
+  .navbar__brand {
+    gap: 0.5rem;
+  }
+
+  .navbar__badge {
+    padding: 0.3rem 0.6rem;
+  }
+}

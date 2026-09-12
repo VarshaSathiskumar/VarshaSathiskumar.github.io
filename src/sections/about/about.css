@@ -47,7 +47,12 @@
 
 .about__first-name,
 .about__last-name {
-  font-size: clamp(2.2rem, 5.6vw + 1.6vh, 6.2rem);
+  /* The outer min() caps growth to a width-proportional ceiling so a
+     tall, narrow viewport (a resized desktop window, not just mobile)
+     can't inflate the vh term past what the hero column can hold —
+     these unbreakable words would otherwise clip against the section's
+     overflow:hidden. */
+  font-size: min(clamp(2.2rem, 5.6vw + 1.6vh, 6.2rem), 8vw);
 }
 
 .about__first-name {
@@ -284,6 +289,198 @@
   }
 }
 
+.about-statement {
+  display: grid;
+  grid-template-columns: 1fr minmax(9rem, 12rem);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: stretch;
+}
+
+.about-statement__main {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.9rem, 2.2vh, 1.4rem);
+  min-width: 0;
+}
+
+/* ---- Eyebrow: "ABOUT ME —— BUILD / LEARN / IMPACT" ---- */
+
+.about-statement__eyebrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.about-statement__eyebrow-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.7rem, 0.35vw + 0.35vh, 0.8rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.about-statement__eyebrow-rule {
+  width: clamp(2rem, 3vw, 3rem);
+  height: 1px;
+  background: var(--color-text-muted);
+}
+
+.about-statement__eyebrow-tag {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.7rem, 0.35vw + 0.35vh, 0.8rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ---- Lead statement ---- */
+
+.about-statement__lead {
+  margin: 0;
+  max-width: 46rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 1.6vw + 1vh, 2.4rem);
+  line-height: 1.18;
+  color: var(--color-black);
+}
+
+/* ---- "What I Do" / "What's Next" rows ---- */
+
+.about-statement__rows {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.8vh, 1.25rem);
+}
+
+.about-statement__row {
+  display: grid;
+  grid-template-columns: minmax(9.5rem, 11.5rem) 1fr;
+  column-gap: clamp(1rem, 2vw, 1.75rem);
+  align-items: start;
+}
+
+.about-statement__row-heading {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.6rem, 1.2vw, 0.9rem);
+}
+
+.about-statement__icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2.6rem, 2.2vw + 1.3vh, 3.4rem);
+  height: clamp(2.6rem, 2.2vw + 1.3vh, 3.4rem);
+  border-radius: 0.85rem;
+}
+
+.about-statement__icon svg {
+  width: 52%;
+  height: 52%;
+}
+
+.about-statement__icon--neutral {
+  background: var(--color-icon-tint-neutral-bg);
+  color: var(--color-icon-tint-neutral-fg);
+}
+
+.about-statement__icon--accent {
+  background: var(--color-icon-tint-accent-bg);
+  color: var(--color-icon-tint-accent-fg);
+}
+
+.about-statement__row-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.68rem, 0.35vw + 0.3vh, 0.78rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  white-space: nowrap;
+}
+
+.about-statement__row-text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(0.92rem, 0.45vw + 0.5vh, 1.12rem);
+  line-height: 1.5;
+  color: var(--color-black);
+}
+
+.about-statement__row-text strong {
+  font-weight: 700;
+}
+
+/* ---- Decorative aside: dot grid + "Complex Problems / Real Solutions" ---- */
+
+.about-statement__aside {
+  display: flex;
+  flex-direction: column;
+  padding-left: clamp(1.25rem, 2.5vw, 2rem);
+  border-left: 1px solid var(--color-text-muted);
+}
+
+.about-statement__dots {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(0.5rem, 1vw, 0.7rem);
+  width: fit-content;
+}
+
+.about-statement__dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+  opacity: 0.55;
+}
+
+.about-statement__aside-label {
+  margin: clamp(1.25rem, 3vh, 2rem) 0 0;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.68rem, 0.35vw + 0.3vh, 0.78rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.about-statement__aside-rule {
+  display: block;
+  margin: clamp(0.9rem, 2vh, 1.35rem) 0 0;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--color-text-muted);
+}
+
+.about-statement__aside-rule + .about-statement__aside-label {
+  margin-top: clamp(0.9rem, 2vh, 1.35rem);
+}
+
+@media (max-width: 960px) {
+  .about-statement {
+    grid-template-columns: 1fr;
+  }
+
+  .about-statement__aside {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-statement__row {
+    grid-template-columns: 1fr;
+    row-gap: 0.6rem;
+  }
+}
+
 /* ==================== Tech Stack ==================== */
 
 #tech-stack {
@@ -296,7 +493,11 @@
   flex-direction: column;
   flex: 1;
   min-height: 0;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.tech-stack__content {
+  flex: none;
 }
 
 .tech-stack__heading {
@@ -305,7 +506,7 @@
   font-weight: var(--font-chunky-weight);
   font-stretch: var(--font-chunky-stretch);
   letter-spacing: var(--font-chunky-tracking);
-  font-size: clamp(3rem, 4.5vw + 3vh, 6rem);
+  font-size: clamp(1.6rem, 2vw + 1.2vh, 3rem);
   line-height: 0.95;
   color: var(--color-black);
   text-transform: uppercase;
