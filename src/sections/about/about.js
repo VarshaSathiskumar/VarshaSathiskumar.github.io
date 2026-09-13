@@ -72,10 +72,17 @@ const render_about = (about_root) => {
           </div>
         </div>
 
-        <div class="about__portrait" role="img" aria-label="Placeholder for a photo or illustration of Varsha Sathiskumar">
-          <span class="about__portrait-label">[ Photo / Illustration ]</span>
-        </div>
-      </div>
+        <div
+  class="about__portrait"
+  aria-label="Illustration of Varsha welcoming visitors to her portfolio"
+>
+  <img
+    src="src/assets/company-logos/figure.png"
+    alt="Illustration of Varsha"
+    class="about__portrait-image"
+  />
+</div>
+     </div>
 
       <div class="about__stats" data-reveal-group>
         ${about_content.stats.map(render_stat_card).join("")}

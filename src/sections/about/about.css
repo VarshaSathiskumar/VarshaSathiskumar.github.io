@@ -14,7 +14,7 @@
 
 .about__hero {
   display: grid;
-  grid-template-columns: 1fr clamp(11rem, 28vw, 20rem);
+  grid-template-columns: 1fr clamp(13rem, 32vw, 23rem);
   gap: clamp(1.5rem, 4vw, 3rem);
   align-items: stretch;
 }
@@ -87,6 +87,7 @@
   line-height: 1.5;
   color: var(--color-text-muted);
 }
+
 
 /* ---- Stat band ---- */
 
@@ -204,7 +205,7 @@
   flex: none;
 }
 
-/* ---- Portrait placeholder ---- */
+/* ---- Portrait ---- */
 
 .about__portrait {
   position: relative;
@@ -212,26 +213,22 @@
   height: 100%;
   min-height: 16rem;
   max-height: calc(100svh - var(--navbar-h) - 2rem);
-  border: 1px solid var(--border-color);
-  border-radius: 0;
-  background-image: repeating-linear-gradient(
-    135deg,
-    var(--color-placeholder-a) 0,
-    var(--color-placeholder-a) 10px,
-    var(--color-placeholder-b) 10px,
-    var(--color-placeholder-b) 20px
-  );
+
   display: flex;
-  align-items: flex-end;
-  padding: clamp(0.75rem, 1.5vh, 1.25rem);
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  background: transparent;
 }
 
-.about__portrait-label {
-  font-family: var(--font-mono);
-  font-size: clamp(0.6rem, 0.35vw + 0.3vh, 0.75rem);
-  letter-spacing: var(--tracking-label);
-  color: var(--color-text-muted);
-  text-transform: uppercase;
+.about__portrait-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  object-position: center;
+  display: block;
 }
 
 /* ---- Responsive ---- */
@@ -243,7 +240,7 @@
 
   .about__portrait {
     order: -1;
-    width: clamp(9rem, 60vw, 16rem);
+    width: clamp(10.5rem, 66vw, 18.5rem);
     height: auto;
     aspect-ratio: 4 / 5;
     min-height: 0;
