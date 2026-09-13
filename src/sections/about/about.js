@@ -62,7 +62,7 @@ const render_about = (about_root) => {
 
           <div class="about__actions" data-reveal>
             <a href="#contact" class="about__cta" data-nav-link="contact">Contact Me</a>
-            <a href="#resume" class="about__cta about__cta--outline" data-nav-link="resume">Resume</a>
+      
             <a href="${about_content.github_url}" class="about__icon-button" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
               GH
             </a>
