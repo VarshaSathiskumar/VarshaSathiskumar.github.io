@@ -566,6 +566,26 @@
   .metric-card {
     grid-column: span 2 !important;
   }
+
+  /* Below ~900px the fixed-width label and arrow crowd the flexible title
+     down to a sliver (it was measuring 0px wide well before mobile,
+     silently vanishing instead of just truncating) — stack the row so the
+     full title always has room to wrap instead of getting clipped. */
+  .impact-metrics__publication {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .impact-metrics__publication-title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .impact-metrics__publication-arrow {
+    align-self: flex-end;
+    padding: 0 clamp(1.1rem, 1.8vw, 1.5rem) clamp(0.9rem, 1.8vh, 1.15rem);
+  }
 }
 
 @media (max-width: 640px) {
