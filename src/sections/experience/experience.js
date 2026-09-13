@@ -111,7 +111,7 @@ const render_accomplishment = (accomplishment) => {
 }
 
 const render_role_card = (role) => `
-  <article class="experience-card" style="--role-color: ${role.color};">
+  <article class="experience-card" data-reveal style="--role-color: ${role.color};">
     <div class="experience-card__label">
       <span class="experience-card__number">${role.number}</span>
       <img src="${company_logos[role.company]}" alt="${role.company} logo" class="experience-card__logo">
@@ -144,10 +144,10 @@ const render_role_card = (role) => `
 const render_experience = (experience_root) => {
   experience_root.innerHTML = `
     <div class="experience__grid">
-      <h2 class="experience__heading">${experience_content.heading}</h2>
+      <h2 class="experience__heading" data-reveal>${experience_content.heading}</h2>
       <hr class="experience__divider">
 
-      <div class="experience__eyebrow">
+      <div class="experience__eyebrow" data-reveal="fade">
         <span class="experience__eyebrow-rule"></span>
         <span class="experience__eyebrow-label">${experience_content.eyebrow}</span>
         <span class="experience__eyebrow-rule experience__eyebrow-rule--grow"></span>
@@ -155,7 +155,7 @@ const render_experience = (experience_root) => {
       </div>
       <hr class="experience__divider experience__divider--thin">
 
-      <div class="experience__scroller">
+      <div class="experience__scroller" data-reveal-group>
         ${experience_content.roles.map(render_role_card).join("")}
       </div>
     </div>

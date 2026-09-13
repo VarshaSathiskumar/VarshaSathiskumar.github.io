@@ -34,7 +34,7 @@ const render_stat_card = (stat) => {
   const variant_class = stat.value_variant ? ` about-stat-card__value--${stat.value_variant}` : ""
 
   return `
-    <div class="about-stat-card">
+    <div class="about-stat-card" data-reveal>
       <span class="about-stat-card__label">${stat.label}</span>
       <span class="about-stat-card__value about-stat-card__value--${stat.value_style}${variant_class}">${stat.value}</span>
       <span class="about-stat-card__description">${stat.description}</span>
@@ -46,21 +46,21 @@ const render_about = (about_root) => {
   about_root.innerHTML = `
     <div class="about__grid">
       <div class="about__hero">
-        <div class="about__content">
-          <span class="about__location">${about_content.location}</span>
+        <div class="about__content" data-reveal-group>
+          <span class="about__location" data-reveal="fade">${about_content.location}</span>
 
-          <h1 class="about__name">
+          <h1 class="about__name" data-reveal>
             <span class="about__first-name">${about_content.first_name}</span>
             <span class="about__last-name">${about_content.last_name}</span>
           </h1>
 
           <hr class="about__name-rule">
 
-          <p class="about__title-line">${about_content.title}</p>
+          <p class="about__title-line" data-reveal>${about_content.title}</p>
 
-          <p class="about__summary">${about_content.summary}</p>
+          <p class="about__summary" data-reveal>${about_content.summary}</p>
 
-          <div class="about__actions">
+          <div class="about__actions" data-reveal>
             <a href="#contact" class="about__cta" data-nav-link="contact">Contact Me</a>
             <a href="#resume" class="about__cta about__cta--outline" data-nav-link="resume">Resume</a>
             <a href="${about_content.github_url}" class="about__icon-button" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
@@ -77,7 +77,7 @@ const render_about = (about_root) => {
         </div>
       </div>
 
-      <div class="about__stats">
+      <div class="about__stats" data-reveal-group>
         ${about_content.stats.map(render_stat_card).join("")}
       </div>
     </div>

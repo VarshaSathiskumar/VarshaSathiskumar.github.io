@@ -31,7 +31,7 @@ const contact_form_fields = [
 ]
 
 const render_channel = (channel) => `
-  <div class="contact-channel">
+  <div class="contact-channel" data-reveal>
     <span class="contact-channel__label">${channel.label}</span>
     <a href="${channel.href}" class="contact-channel__value" target="_blank" rel="noopener noreferrer">${channel.value}</a>
   </div>
@@ -43,7 +43,7 @@ const render_field = (field) => {
     : `<input id="${field.id}" name="${field.name}" type="${field.type}" class="contact-field__input">`
 
   return `
-    <div class="contact-field contact-field--${field.row || "full"}">
+    <div class="contact-field contact-field--${field.row || "full"}" data-reveal>
       <label for="${field.id}" class="contact-field__label">${field.label}</label>
       ${input_element}
     </div>
@@ -67,20 +67,20 @@ const render_contact = (contact_root) => {
 
   contact_root.innerHTML = `
     <div class="contact__grid">
-      <h2 class="contact__heading">${heading_html}</h2>
+      <h2 class="contact__heading" data-reveal>${heading_html}</h2>
 
       <div class="contact__body">
-        <div class="contact__channels">
+        <div class="contact__channels" data-reveal-group>
           ${contact_content.channels.map(render_channel).join("")}
         </div>
 
-        <form class="contact__form">
+        <form class="contact__form" data-reveal-group>
           <div class="contact-field-row">
             ${name_fields_html}
           </div>
           ${other_fields_html}
 
-          <button type="submit" class="contact__submit">Transmit_Message</button>
+          <button type="submit" class="contact__submit" data-reveal>Transmit_Message</button>
         </form>
       </div>
     </div>

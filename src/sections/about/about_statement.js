@@ -40,7 +40,7 @@ const about_statement_content = {
 }
 
 const render_statement_row = (row) => `
-  <div class="about-statement__row">
+  <div class="about-statement__row" data-reveal>
     <div class="about-statement__row-heading">
       <span class="about-statement__icon about-statement__icon--${row.tint}">${row.icon_svg}</span>
       <span class="about-statement__row-label">${row.label}</span>
@@ -56,21 +56,21 @@ const render_decorative_dots = () => {
 
 const render_about_statement = () => `
   <div class="about-statement">
-    <div class="about-statement__main">
-      <div class="about-statement__eyebrow">
+    <div class="about-statement__main" data-reveal-group>
+      <div class="about-statement__eyebrow" data-reveal="fade">
         <span class="about-statement__eyebrow-label">${about_statement_content.eyebrow_label}</span>
         <span class="about-statement__eyebrow-rule"></span>
         <span class="about-statement__eyebrow-tag">${about_statement_content.eyebrow_tag}</span>
       </div>
 
-      <p class="about-statement__lead">${about_statement_content.lead}</p>
+      <p class="about-statement__lead" data-reveal>${about_statement_content.lead}</p>
 
       <div class="about-statement__rows">
         ${about_statement_content.rows.map(render_statement_row).join("")}
       </div>
     </div>
 
-    <div class="about-statement__aside" aria-hidden="true">
+    <div class="about-statement__aside" data-reveal="fade" aria-hidden="true">
       ${render_decorative_dots()}
       <span class="about-statement__aside-label">${about_statement_content.decorative.top_label}</span>
       <span class="about-statement__aside-rule"></span>

@@ -1,5 +1,6 @@
 import { initialize_navbar } from "./components/navbar.js"
 import { initialize_section_scroll } from "./components/section_scroll.js"
+import { initialize_scroll_reveal } from "./components/scroll_reveal.js"
 import { initialize_about } from "./sections/about/about.js"
 import { initialize_about_statement } from "./sections/about/about_statement.js"
 import { initialize_about_tech_stack } from "./sections/about/about_tech_stack.js"
@@ -19,3 +20,4 @@ initialize_experience_impact_metrics()
 initialize_projects()
 initialize_resume()
 initialize_contact()
+initialize_scroll_reveal()

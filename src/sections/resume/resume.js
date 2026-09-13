@@ -21,6 +21,7 @@ const render_preview_card = () => `
     target="_blank"
     rel="noopener noreferrer"
     class="resume__preview"
+    data-reveal="scale"
     aria-label="View resume in browser"
   >
     <div class="resume__preview-page">
@@ -42,7 +43,7 @@ const render_resume = (resume_root) => {
 
   resume_root.innerHTML = `
     <div class="resume__grid">
-      <div class="resume__eyebrow">
+      <div class="resume__eyebrow" data-reveal="fade">
         <span class="resume__eyebrow-rule"></span>
         <span class="resume__eyebrow-label">${resume_content.eyebrow}</span>
         <span class="resume__eyebrow-rule resume__eyebrow-rule--grow"></span>
@@ -50,9 +51,9 @@ const render_resume = (resume_root) => {
 
       <div class="resume__body">
         <div class="resume__content">
-          <h2 class="resume__heading">${heading_html}</h2>
+          <h2 class="resume__heading" data-reveal>${heading_html}</h2>
 
-          <div class="resume__actions">
+          <div class="resume__actions" data-reveal>
             <a href="${resume_content.resume_url}" download="Varsha_Sathiskumar_Resume.pdf" class="resume__button resume__button--filled">
               ${download_icon_svg}
               Download Resume

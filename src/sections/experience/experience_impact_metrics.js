@@ -103,7 +103,7 @@ const render_metric_body = (metric) => {
 }
 
 const render_metric_card = (metric) => `
-  <div class="metric-card metric-card--${metric.layout}" style="grid-column: span ${metric.span}; --metric-color: ${metric.color};">
+  <div class="metric-card metric-card--${metric.layout}" data-reveal="scale" style="grid-column: span ${metric.span}; --metric-color: ${metric.color};">
     <div class="metric-card__label">
       <span class="metric-card__swatch"></span>
       <span>Metric_${metric.id}</span>
@@ -117,23 +117,24 @@ const render_metric_card = (metric) => `
 const render_impact_metrics = (impact_metrics_root) => {
   impact_metrics_root.innerHTML = `
     <div class="impact-metrics__grid">
-      <div class="impact-metrics__eyebrow">
+      <div class="impact-metrics__eyebrow" data-reveal="fade">
         <span class="impact-metrics__eyebrow-rule"></span>
         <span class="impact-metrics__eyebrow-label">${impact_metrics_content.eyebrow}</span>
         <span class="impact-metrics__eyebrow-rule impact-metrics__eyebrow-rule--grow"></span>
       </div>
 
-      <div class="impact-metrics__cards">
+      <div class="impact-metrics__cards" data-reveal-group>
         ${impact_metrics_content.metrics.map(render_metric_card).join("")}
       </div>
 
-      <h3 class="impact-metrics__publication-heading">${impact_metrics_content.publication.heading}</h3>
+      <h3 class="impact-metrics__publication-heading" data-reveal>${impact_metrics_content.publication.heading}</h3>
 
       <a
         href="${impact_metrics_content.publication.url}"
         target="_blank"
         rel="noopener noreferrer"
         class="impact-metrics__publication"
+        data-reveal="scale"
       >
         <div class="impact-metrics__publication-label">
           <span class="impact-metrics__publication-swatch"></span>

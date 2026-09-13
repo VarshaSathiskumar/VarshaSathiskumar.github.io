@@ -38,7 +38,7 @@ const render_tech_stack_item = (item) => {
   const box_class = item.bold_icon ? "tech-stack-item__box tech-stack-item__box--bold-icon" : "tech-stack-item__box"
 
   return `
-    <div class="tech-stack-item">
+    <div class="tech-stack-item" data-reveal="scale">
       <div class="${box_class}">
         ${image_content}
       </div>
@@ -50,10 +50,10 @@ const render_tech_stack_item = (item) => {
 const render_about_tech_stack = (tech_stack_root) => {
   tech_stack_root.innerHTML = `
     <div class="tech-stack__grid">
-      <h2 class="tech-stack__heading">TECH STACK</h2>
-      <hr class="tech-stack__divider">
+      <h2 class="tech-stack__heading" data-reveal>TECH STACK</h2>
+      <hr class="tech-stack__divider" data-reveal="fade">
 
-      <div class="tech-stack__items">
+      <div class="tech-stack__items" data-reveal-group>
         ${tech_stack_items.map(render_tech_stack_item).join("")}
       </div>
     </div>

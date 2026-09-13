@@ -131,7 +131,7 @@ const render_category_toggle = (category, active_category) => {
 const render_tech_tag = (tech) => `<span class="project-card__tech-tag">${tech}</span>`
 
 const render_project_card = (project) => `
-  <article class="project-card" data-category="${project.category}" style="--project-color: ${project.color};">
+  <article class="project-card" data-category="${project.category}" data-reveal style="--project-color: ${project.color};">
     <div class="project-card__header">
       <span>${project.category === "work" ? "Work" : "Personal"}_${project.number}</span>
       <span>${project.year}</span>
@@ -198,21 +198,21 @@ const render_projects = (projects_root) => {
 
   projects_root.innerHTML = `
     <div class="projects__grid">
-      <div class="projects__eyebrow">
+      <div class="projects__eyebrow" data-reveal="fade">
         <span class="projects__eyebrow-rule"></span>
         <span class="projects__eyebrow-label">${projects_content.eyebrow}</span>
         <span class="projects__eyebrow-rule projects__eyebrow-rule--grow"></span>
         <span class="projects__scroll-hint">${projects_content.scroll_hint}</span>
       </div>
 
-      <div class="projects__header-row">
+      <div class="projects__header-row" data-reveal>
         <h2 class="projects__heading">${heading_html}</h2>
         <div class="projects__toggle">
           ${projects_content.categories.map((category) => render_category_toggle(category, active_category)).join("")}
         </div>
       </div>
 
-      <div class="projects__scroller">
+      <div class="projects__scroller" data-reveal-group>
         ${projects_content.projects.map(render_project_card).join("")}
       </div>
     </div>
