@@ -231,6 +231,84 @@
   display: block;
 }
 
+/* Speech-bubble accent over the illustration's head — see
+   src/sections/about/about.js (data-reveal="pop") for its scroll-entrance
+   and the message-cycling interval. Drawn from the site's own card
+   language (hard border + offset shadow) rather than an image, since its
+   two messages crossfade and need to be real text. Sized/positioned to
+   sit near the figure's head at every breakpoint; the box itself is a
+   fixed size so cycling between the two messages never resizes it. */
+.about__portrait-bubble {
+  position: absolute;
+  top: clamp(0.6rem, 4%, 1.25rem);
+  right: clamp(0.5rem, 5%, 1.25rem);
+  width: clamp(5.5rem, 7vw, 8.25rem);
+  min-height: 3.6rem;
+  background: var(--color-white);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-hard);
+  z-index: 1;
+}
+
+.about__portrait-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -0.42rem;
+  left: 1.1rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--color-white);
+  border-left: var(--border-width) solid var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
+  transform: rotate(-45deg);
+}
+
+/* The two messages fully overlap (inset: 0) so swapping which one is
+   `.is-active` never changes the bubble's box size — only opacity/transform
+   cross-fade. */
+.about__portrait-bubble-message {
+  /* Deliberately not var(--reveal-duration)/var(--reveal-ease): those
+     inherit from this bubble's own data-reveal="pop" (a bouncy overshoot
+     for the one-time scroll entrance), which would leak into this
+     continuous crossfade loop and make it read as bouncy instead of the
+     calm, professional fade this needs — so it's pinned to its own
+     values instead. */
+  --bubble-message-duration: 550ms;
+  --bubble-message-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.6rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.6rem, 0.75vw, 0.7rem);
+  line-height: 1.3;
+  color: var(--color-black);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(0.35rem);
+  transition: opacity var(--bubble-message-duration) var(--bubble-message-ease),
+    transform var(--bubble-message-duration) var(--bubble-message-ease);
+  pointer-events: none;
+  user-select: none;
+}
+
+.about__portrait-bubble-message.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__portrait-bubble-message {
+    transition: opacity var(--bubble-message-duration) linear;
+    transform: none;
+  }
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 960px) {
@@ -246,6 +324,16 @@
     min-height: 0;
     max-height: none;
     margin: 0 auto;
+  }
+
+  .about__portrait-bubble {
+    width: clamp(5rem, 18vw, 7rem);
+    min-height: 3.3rem;
+  }
+
+  .about__portrait-bubble-message {
+    font-size: clamp(0.56rem, 2vw, 0.66rem);
+    padding: 0.4rem 0.5rem;
   }
 
   .about__stats {

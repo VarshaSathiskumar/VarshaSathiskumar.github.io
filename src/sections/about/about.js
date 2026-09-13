@@ -81,6 +81,10 @@ const render_about = (about_root) => {
     alt="Illustration of Varsha"
     class="about__portrait-image"
   />
+  <div class="about__portrait-bubble" data-reveal="pop" aria-hidden="true">
+    <span class="about__portrait-bubble-message is-active">Welcome to my portfolio!</span>
+    <span class="about__portrait-bubble-message">My AI Voice Agent — Coming Soon</span>
+  </div>
 </div>
      </div>
 
@@ -89,6 +93,23 @@ const render_about = (about_root) => {
       </div>
     </div>
   `
+}
+
+const bubble_message_hold_ms = 2800
+
+const start_bubble_message_cycle = (about_root) => {
+  const messages = Array.from(about_root.querySelectorAll(".about__portrait-bubble-message"))
+  if (messages.length < 2) return
+
+  let active_index = messages.findIndex((message) => message.classList.contains("is-active"))
+  if (active_index === -1) active_index = 0
+
+  window.setInterval(() => {
+    const next_index = (active_index + 1) % messages.length
+    messages[active_index].classList.remove("is-active")
+    messages[next_index].classList.add("is-active")
+    active_index = next_index
+  }, bubble_message_hold_ms)
 }
 
 const attach_cta_listener = (about_root) => {
@@ -109,4 +130,5 @@ export const initialize_about = () => {
 
   render_about(about_root)
   attach_cta_listener(about_root)
+  start_bubble_message_cycle(about_root)
 }
