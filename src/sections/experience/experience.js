@@ -40,8 +40,8 @@ const experience_content = {
       description:
         "Owned full-stack development of an enterprise pricing application used across 4 global regions, from feature delivery to backend performance.",
       accomplishments: [
-        "Delivered 50+ features across 4 global regions, achieving over 97% user acceptance using C# and ASP.NET Core.",
-        "Engineered 10+ REST APIs integrating SAP and Salesforce, supporting 15K+ monthly pricing transactions."
+        "Delivered 50+ features and engineered 10+ REST APIs integrating SAP and Salesforce, supporting 15K+ monthly transactions with 97%+ user acceptance.",
+        "Modernized legacy services into 4 containerized microservices using Docker and Kubernetes, reducing production incidents by 32%."
       ]
     },
     {
@@ -54,10 +54,10 @@ const experience_content = {
       title: "Associate Software Engineer",
       specialism: "Full-Stack / IoT & Analytics",
       description:
-        "Built IoT monitoring dashboards and serverless pipelines processing real-time device data across a large multi-state facility footprint.",
+        "Built a large-scale IoT monitoring application and serverless data pipelines for real-time device monitoring across a multi-state facility footprint.",
       accomplishments: [
-        "Supported 5,000+ users across 33M+ sq. ft., contributing to 105% higher visitor satisfaction.",
-        "Built serverless Azure pipelines processing 1M+ daily IoT events, saving $68,052 annually per user."
+      "Scaled the application to support 5,000+ users across 33M+ sq. ft., contributing to 105% higher visitor satisfaction.",
+      "Engineered serverless Azure pipelines processing 1M+ IoT events daily, driving $68,052 in annual savings per user."
       ]
     },
     {
@@ -73,7 +73,8 @@ const experience_content = {
         "Designed and deployed a centralized consulting workflow tool from scratch, replacing an ad hoc process for a global team.",
       accomplishments: [
         "Served 3,000+ global team members, processing 75 weekly requests.",
-        "Reduced request processing time from 1 day to 4 hours using Power Platform."
+        "Reduced request processing time from 1 day to 4 hours using Power Platform.",
+        "Built 15+ reusable UI components, reducing duplicated development effort and improving application UI consistency"
       ]
     },
     {

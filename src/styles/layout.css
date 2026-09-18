@@ -50,9 +50,22 @@ html {
      sizes. On phones, forcing every section into a hard-clipped
      viewport-height box would make dense sections illegible, so mobile
      falls back to a natural height with normal scrolling instead. */
+  html {
+    /* Below this breakpoint section_scroll.js's wheel-jacking is
+       inert (touch scroll doesn't fire wheel events anyway) and
+       sections no longer share a uniform height, so there's no JS
+       coordinating snap points anymore. Leaving snap on here fights
+       navbar.js's scrollIntoView calls (landing on an intermediate
+       section instead of the target) and pulls touch scrolling
+       toward section boundaries before the user can stop mid-section
+       to read. */
+    scroll-snap-type: none;
+  }
+
   .section {
     height: auto;
     min-height: calc(100svh - var(--navbar-h));
+    scroll-snap-align: none;
     overflow: visible;
     padding-block: 2rem;
   }
