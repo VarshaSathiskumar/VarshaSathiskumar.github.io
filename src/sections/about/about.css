@@ -31,8 +31,17 @@
   color: var(--color-text-muted);
 }
 
-.about__name {
+.about__greeting {
+  display: block;
   margin: clamp(0.8rem, 3vh, 1.6rem) 0 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(1rem, 0.55vw + 0.55vh, 1.25rem);
+  color: var(--color-text-muted);
+}
+
+.about__name {
+  margin: clamp(0.2rem, 0.8vh, 0.4rem) 0 0;
   font-family: var(--font-chunky);
   font-weight: var(--font-chunky-weight);
   font-stretch: var(--font-chunky-stretch);
@@ -74,7 +83,7 @@
   margin: clamp(1.2rem, 3vh, 1.8rem) 0 0;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: clamp(1.05rem, 0.67vw + 0.82vh, 1.25rem);
+  font-size: clamp(1.3rem, 0.9vw + 1vh, 1.6rem);
   color: var(--color-black);
 }
 

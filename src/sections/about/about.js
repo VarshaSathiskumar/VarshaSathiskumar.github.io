@@ -1,10 +1,10 @@
 const about_content = {
   first_name: "Varsha",
   last_name: "Sathiskumar",
-  title: "Full Stack Engineer — Enterprise and B2B",
+  title: "Full Stack Software Engineer",
   location: "Denver, Colorado",
   summary:
-    "Software Engineer with 4+ years shipping scalable, full-stack enterprise applications — now building production-grade GenAI and Agentic AI systems, from architecture to measurable impact.",
+    "Software Engineer with 4+ years building scalable full-stack enterprise and B2B applications, now expanding that foundation into GenAI and Agentic AI systems that solve complex, real-world problems.",
   stats: [
     {
       label: "Experience",
@@ -48,6 +48,8 @@ const render_about = (about_root) => {
       <div class="about__hero">
         <div class="about__content" data-reveal-group>
           <span class="about__location" data-reveal="fade">${about_content.location}</span>
+
+          <span class="about__greeting" data-reveal="fade">Hi, I'm</span>
 
           <h1 class="about__name" data-reveal>
             <span class="about__first-name">${about_content.first_name}</span>

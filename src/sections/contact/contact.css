@@ -156,4 +156,8 @@
   .contact-field-row {
     grid-template-columns: 1fr;
   }
+
+  #contact {
+    padding-bottom: max(clamp(1.05rem, 3.15vh, 2.5rem), 14vh);
+  }
 }
