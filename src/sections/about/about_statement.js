@@ -23,7 +23,7 @@ const about_statement_content = {
       tint: "neutral",
       label: "What I Do",
       text_html:
-        "My work spans full-stack engineering, distributed systems, and applied AI, with a focus on performance, maintainability, and measurable business impact."
+        "My work spans <strong>full-stack engineering</strong>, <strong>distributed systems</strong>, and <strong>legacy system modernization</strong>, with a focus on performance, maintainability, and measurable business impact."
     },
     {
       icon_svg: sparkles_icon_svg,
