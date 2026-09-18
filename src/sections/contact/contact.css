@@ -144,6 +144,27 @@
   cursor: pointer;
 }
 
+.contact__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact__status {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.75rem, 0.4vw + 0.4vh, 0.9rem);
+  letter-spacing: var(--tracking-label);
+}
+
+.contact__status--success {
+  color: var(--color-pill-text);
+}
+
+.contact__status--error {
+  color: var(--color-accent);
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 960px) {
