@@ -42,16 +42,16 @@ const projects_content = {
     {
       category: "personal",
       number: "01",
-      color: "var(--color-metric-green)",
+      color: "var(--color-metric-blue)",
       year: "2026",
-      name: "Outcrop Analog — Geospatial Web Platform",
-      one_liner: "An interactive GIS platform for exploring geological survey data across the Delaware Mountain Group.",
+      name: "Voice AI Agent Integrated Website",
+      one_liner: "Personal portfolio website with an integrated AI voice agent.",
       description:
-        "Engineered an ETL pipeline consolidating 2TB+ of geological data from 30+ source files, and built a 12-layer interactive map reducing query time from 40 minutes to 2 seconds.",
-      key_metric: { value: "99%", label: "Faster Query Time" },
-      impact: { value: "2TB+", label: "Geological Data Consolidated" },
-      tech: ["React", "FastAPI", "Mapbox GL JS", "PostgreSQL", "Supabase", "PostGIS"],
-      link: { url: "https://outcropanalog.com/", label: "View_Demo" }
+        "Automated development workflows using Claude Code and built a RAG-powered OpenAI voice agent that retrieves portfolio and resume context to answer questions about my experience, projects, and technical background through natural conversation.",
+      key_metric: { value: "In Progress", label: "" },
+      impact: { value: "In Progress", label: "" },
+      tech: ["Claude Code", "CSS", "JavaScript", "HTML", "OpenAI", "Formspree"],
+      link: { url: "https://github.com/VarshaSathiskumar/VarshaSathiskumar.github.io", label: "View_Project" }
     },
     {
       category: "personal",
@@ -98,6 +98,20 @@ const projects_content = {
         url: "https://www.researchgate.net/publication/345674817_Automatic_Detection_of_Leaf_Disease_Using_CNN_Algorithm",
         label: "View_Paper"
       }
+    },
+    {
+      category: "personal",
+      number: "05",
+      color: "var(--color-metric-green)",
+      year: "2026",
+      name: "Outcrop Analog — Geospatial Web Platform",
+      one_liner: "An interactive GIS platform for exploring geological survey data across the Delaware Mountain Group.",
+      description:
+        "Engineered an ETL pipeline consolidating 2TB+ of geological data from 30+ source files, and built a 12-layer interactive map reducing query time from 40 minutes to 2 seconds.",
+      key_metric: { value: "99%", label: "Faster Query Time" },
+      impact: { value: "2TB+", label: "Geological Data Consolidated" },
+      tech: ["React", "FastAPI", "Mapbox GL JS", "PostgreSQL", "Supabase", "PostGIS"],
+      link: { url: "https://outcropanalog.com/", label: "View_Demo" }
     }
   ]
 }
