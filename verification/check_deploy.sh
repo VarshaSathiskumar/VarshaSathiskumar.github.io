@@ -95,7 +95,7 @@ else
 fi
 
 # 7. Resume PDF reachable with correct content type
-resume_path="src/assets/resume/Portfolioresume_VarshaSathiskumar_Resume_.pdf"
+resume_path="src/assets/resume/Portfolio_VarshaSathiskumar_Resume_.pdf"
 resume_headers="$(curl -s -I -L "$base_url/$resume_path")"
 resume_status="$(echo "$resume_headers" | head -n 1 | grep -o '[0-9][0-9][0-9]' | head -n 1)"
 if [ "$resume_status" = "200" ] && echo "$resume_headers" | grep -qi "content-type: application/pdf"; then
