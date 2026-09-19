@@ -4,7 +4,7 @@ const resume_content = {
     { text: "The Whole", style: "black" },
     { text: "Record", style: "accent" }
   ],
-  resume_url: "src/assets/resume/Portfolioresume_VarshaSathiskumar_Resume_.pdf",
+  resume_url: "src/assets/resume/Portfolio_VarshaSathiskumar_Resume_.pdf",
   preview_caption: "Letter · 1 Page"
 }
 
