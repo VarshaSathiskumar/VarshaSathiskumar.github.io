@@ -18,5 +18,5 @@ The whole thing was built by driving the **Claude Code** harness.
 
 ## AI Voice Agent
 
-The portrait bubble on the About section opens a voice agent visitors can talk to about my experience, projects, and background. It's built on the OpenAI Realtime API for live voice conversation, backed by a small retrieval (RAG) service that grounds its answers in my resume and portfolio content. The backend is hosted separately from this static site, since GitHub Pages only serves static files.
+The portrait bubble on the About section opens a voice agent visitors can talk to about my experience, projects, and background. It's built on the OpenAI Realtime API for live voice conversation, backed by a small retrieval (RAG) service that grounds its answers in my resume and portfolio content. The backend is hosted separately from this static site, since GitHub Pages only serves static files — code at [personal-voice-ai-agent](https://github.com/VarshaSathiskumar/personal-voice-ai-agent).
 
