@@ -14,7 +14,9 @@ Delete these instructions when you are done, or leave them. It does not matter.
 What you wanted at the start, and what is actually live now.
 Name one thing you dropped or added along the way, and why.
 
-*Your answer here.*
+At the start of the project, I set out to build a personal portfolio website based on the UI mockups I had designed. I was able to implement the planned UI closely, including the main sections, layouts, and responsive behavior.
+
+One idea I added along the way was a live AI voice agent that visitors could use to ask questions about my background, experience, and projects. I was able to implement the voice agent and connect it to my portfolio information. My original idea was to also clone my own voice so the agent would sound like me. However, I dropped that part because I could not find a free platform that supported both voice cloning and the integration I needed. The final version therefore includes the AI voice agent, but uses a standard voice instead of my cloned voice.
 
 ---
 
@@ -28,7 +30,11 @@ Say which you picked, what the alternative was, and what you gave up by not taki
 
 "There was no alternative" is not an answer. Find the fork.
 
-*Your answer here.*
+One major choice I made was sticking strictly with HTML, CSS, and JavaScript instead of using a framework like React. Since the portfolio is relatively simple and does not require much scalability, I wanted to keep the architecture lightweight.
+
+For the contact section, instead of opening the user’s email client, which may behave differently across devices, I integrated Formspree to handle messages directly through the website.
+
+For the voice agent, I chose to keep the backend separate from the portfolio repository. GitHub Pages only supports static hosting, and keeping the voice agent standalone also gives me more flexibility to improve and scale it independently. The alternative was to build and deploy everything together. By separating them, I gave up a single codebase and deployment, but kept the main portfolio simple and static.
 
 ---
 
@@ -42,7 +48,9 @@ If it genuinely never happened, say so plainly, and then say what you would have
 check in order to notice. Being honest here costs you far less than a story you cannot
 defend when you record your video.
 
-*Your answer here.*
+One place I overruled Claude was while testing the website’s responsiveness. Claude initially reported that the site was responsive across desktop, tablet, and mobile dimensions, but when I manually tested different viewport sizes, I found layout issues at specific breakpoints. I had to identify the exact dimensions and point out the issues before Claude corrected them.
+
+I also noticed that Claude sometimes added its own design choices even when I asked it to follow the UI mockups exactly. For example, it created buttons with rounded corners when the mockup had sharp edges. Instead of accepting those changes, I compared the implementation against my mockups and explicitly directed Claude to match the original design.
 
 ---
 
@@ -66,4 +74,6 @@ fully understand.
 
 What would you do next, and how would you find out?
 
-*Your answer here.*
+One thing that is still in progress is my multi-agent workflow for automated responsiveness testing. My goal was to have an orchestrator use Playwright to capture screenshots across different viewport sizes, a reviewer agent identify UI issues, and a coding agent fix them before sending the changes back for review.
+
+The main issue is that the reviewer does not yet have a reliable reference for what each viewport should look like, so it cannot consistently verify whether the UI is correct. My next step is to define reference screenshots and clear acceptance criteria for each viewport size, then test the workflow against known UI issues. Eventually, I want to make this reusable across other websites I build.
