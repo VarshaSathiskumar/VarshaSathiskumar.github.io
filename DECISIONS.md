@@ -63,7 +63,13 @@ A check that could not have failed is not a check.
 
 Link to your `verification/` folder.
 
-*Your answer here.*
+I created a verification/ folder containing a screenshot of the deployed portfolio, fetch.txt with the fetched live-site response, a README.md documenting the verification process, and check_deploy.sh for automated post-deployment verification.
+
+I ran check_deploy.sh against the live site. It runs 10 checks covering the homepage response, expected page content and sections, JavaScript and stylesheets, resume PDF, company logos, tech-stack icons, and leftover placeholder content. All 10 checks passed.
+
+The check would fail if any of these conditions were broken—for example, if the site did not return HTTP 200, a required section was missing, an asset returned an error, or placeholder content remained. If any test fails, the script reports the failure and exits with status 1.
+
+I also added instructions to CLAUDE.md to run this verification after deployment.
 
 ---
 
