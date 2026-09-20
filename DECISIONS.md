@@ -1,14 +1,5 @@
 # Decision log
 
-Your methods section. About one page total.
-
-Answer these as you go, not the night before it is due.
-Specifics beat polish - a short honest answer is worth more than a long vague one.
-
-Delete these instructions when you are done, or leave them. It does not matter.
-
----
-
 ## 1. What did you set out to build, and what changed?
 
 What you wanted at the start, and what is actually live now.
@@ -30,7 +21,7 @@ Say which you picked, what the alternative was, and what you gave up by not taki
 
 "There was no alternative" is not an answer. Find the fork.
 
-One major choice I made was sticking strictly with HTML, CSS, and JavaScript instead of using a framework like React. Since the portfolio is relatively simple and does not require much scalability, I wanted to keep the architecture lightweight.
+One major choice I made was sticking strictly with HTML, CSS, and JavaScript instead of using a framework like React. Since the portfolio is relatively simple and does not require much scalability, I wanted to keep the architecture lightweight. For the visual design, I took inspiration from multiple portfolios online and created the UI mockups using Claude code Design.
 
 For the contact section, instead of opening the user’s email client, which may behave differently across devices, I integrated Formspree to handle messages directly through the website.
 
@@ -50,7 +41,7 @@ defend when you record your video.
 
 One place I overruled Claude was while testing the website’s responsiveness. Claude initially reported that the site was responsive across desktop, tablet, and mobile dimensions, but when I manually tested different viewport sizes, I found layout issues at specific breakpoints. I had to identify the exact dimensions and point out the issues before Claude corrected them.
 
-I also noticed that Claude sometimes added its own design choices even when I asked it to follow the UI mockups exactly. For example, it created buttons with rounded corners when the mockup had sharp edges. Instead of accepting those changes, I compared the implementation against my mockups and explicitly directed Claude to match the original design.
+I also noticed that Claude sometimes added its own design choices even when I asked it to follow the UI mockups exactly. For example, it created buttons with rounded corners when the mockup had sharp edges. Instead of accepting those changes, I compared the implementation against my mockups and explicitly directed Claude to match the exact button designs.
 
 ---
 
@@ -67,7 +58,7 @@ I created a verification/ folder containing a screenshot of the deployed portfol
 
 I ran check_deploy.sh against the live site. It runs 10 checks covering the homepage response, expected page content and sections, JavaScript and stylesheets, resume PDF, company logos, tech-stack icons, and leftover placeholder content. All 10 checks passed.
 
-The check would fail if any of these conditions were broken—for example, if the site did not return HTTP 200, a required section was missing, an asset returned an error, or placeholder content remained. If any test fails, the script reports the failure and exits with status 1.
+The check would fail if any of these conditions were broken. For example, if the site did not return HTTP 200, a required section was missing, an asset returned an error, or placeholder content remained. If any test fails, the script reports the failure and exits with status 1.
 
 I also added instructions to CLAUDE.md to run this verification after deployment.
 
