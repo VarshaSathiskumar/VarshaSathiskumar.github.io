@@ -125,7 +125,12 @@ const attach_cta_listener = (about_root) => {
       if (!section_id) return
 
       event.preventDefault()
-      document.getElementById(section_id)?.scrollIntoView({ behavior: "smooth" })
+      /* See navbar.js's nav-link handler: deferring a frame avoids the
+         browser cancelling the smooth scroll while a touch tap is still
+         settling. */
+      requestAnimationFrame(() => {
+        document.getElementById(section_id)?.scrollIntoView({ behavior: "smooth" })
+      })
     })
   })
 }

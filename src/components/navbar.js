@@ -75,8 +75,18 @@ const attach_nav_link_listeners = (navbar_root) => {
       if (!section_id) return
 
       event.preventDefault()
-      document.getElementById(section_id)?.scrollIntoView({ behavior: "smooth" })
       close_mobile_menu(navbar_root)
+      /* Deferred a frame: on touch devices the tap that opened/targets this
+         link can still be settling (finger lifting off screen) when this
+         handler runs. Calling scrollIntoView in that same synchronous tick
+         lets the browser's own touch-scroll handling cancel the smooth
+         scroll almost immediately, most visibly on the longest jump
+         (e.g. Contact back up to About) — it barely moves and the page
+         stays on the section it started on. Waiting a frame lets the menu
+         finish collapsing and the touch sequence settle first. */
+      requestAnimationFrame(() => {
+        document.getElementById(section_id)?.scrollIntoView({ behavior: "smooth" })
+      })
     })
   })
 }
