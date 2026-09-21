@@ -221,10 +221,18 @@
 
 /* ---- Portrait ---- */
 
+.about__portrait-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 1.2vh, 0.75rem);
+}
+
 .about__portrait {
   position: relative;
   width: 100%;
-  height: 100%;
+  flex: 1;
   min-height: 16rem;
   max-height: calc(100svh - var(--navbar-h) - 2rem);
 
@@ -243,6 +251,17 @@
 
   object-position: center;
   display: block;
+}
+
+.about__portrait-hint {
+  margin: 0;
+  max-width: 18rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.72rem, 0.35vw + 0.4vh, 0.82rem);
+  line-height: 1.4;
+  color: var(--color-accent);
+  text-align: center;
 }
 
 /* Speech-bubble accent over the illustration's head — see
@@ -331,14 +350,23 @@
     grid-template-columns: 1fr;
   }
 
-  .about__portrait {
+  .about__portrait-wrap {
     order: -1;
     width: clamp(10.5rem, 66vw, 18.5rem);
+    margin: 0 auto;
+  }
+
+  .about__portrait {
+    flex: none;
+    width: 100%;
     height: auto;
     aspect-ratio: 4 / 5;
     min-height: 0;
     max-height: none;
-    margin: 0 auto;
+  }
+
+  .about__portrait-hint {
+    max-width: 14rem;
   }
 
   .about__portrait-bubble {

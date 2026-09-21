@@ -78,19 +78,22 @@ const render_about = (about_root) => {
           </div>
         </div>
 
-        <div
-  class="about__portrait"
-  aria-label="Illustration of Varsha welcoming visitors to her portfolio"
->
-  <img
-    src="src/assets/company-logos/figure.png"
-    alt="Illustration of Varsha"
-    class="about__portrait-image"
-  />
-  <div class="about__portrait-bubble" data-reveal="pop" role="button" tabindex="0" aria-label="Talk to my AI voice agent">
-    <span class="about__portrait-bubble-message is-active">Welcome to my portfolio!</span>
-    <span class="about__portrait-bubble-message">Talk to my AI Voice Agent</span>
+        <div class="about__portrait-wrap">
+  <div
+    class="about__portrait"
+    aria-label="Illustration of Varsha welcoming visitors to her portfolio"
+  >
+    <img
+      src="src/assets/company-logos/figure.png"
+      alt="Illustration of Varsha"
+      class="about__portrait-image"
+    />
+    <div class="about__portrait-bubble" data-reveal="pop" role="button" tabindex="0" aria-label="Talk to my AI voice agent">
+      <span class="about__portrait-bubble-message is-active">Welcome to my portfolio!</span>
+      <span class="about__portrait-bubble-message">Talk to my AI Voice Agent</span>
+    </div>
   </div>
+  <p class="about__portrait-hint" data-reveal="fade">Click the bubble to talk to my AI voice agent</p>
 </div>
      </div>
 
