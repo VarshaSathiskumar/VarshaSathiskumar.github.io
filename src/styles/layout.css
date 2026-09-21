@@ -1,12 +1,10 @@
-/* Full-viewport section layout.
-   Each top-level portfolio section fills exactly one screen's worth of
-   height below the fixed navbar and never scrolls internally. The
-   primary section-to-section navigation (one wheel gesture = one
-   section, nav link clicks) is driven by JS —
-   src/components/section_scroll.js and the scrollIntoView calls in
-   navbar.js/about.js. CSS scroll-snap is kept only as "proximity" (see
-   below) to catch input the JS doesn't own, such as scrollbar dragging
-   or keyboard paging.
+/* Section layout.
+   Scrolling is natural at every viewport size — the page never jacks
+   the wheel or snaps to section boundaries on its own. The only thing
+   that lands exactly on a section is an explicit nav click, via the
+   scrollIntoView({ behavior: "smooth" }) calls in navbar.js/about.js;
+   scroll-behavior: smooth below is what makes those landings animate
+   instead of jumping.
    --navbar-h is measured from the real rendered navbar
    (src/components/navbar.js) and kept in sync on resize; the value here
    is only a first-paint fallback before that JS runs. */
@@ -16,28 +14,13 @@
 }
 
 html {
-  /* proximity, not mandatory: a defensive fallback for input the JS
-     wheel handler doesn't own (scrollbar drag, touch swipe, keyboard) —
-     "mandatory" risks fighting the JS-driven scrollIntoView calls used
-     for nav links and wheel navigation. */
-  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
 }
 
 .section {
-  height: calc(100svh - var(--navbar-h));
   min-height: calc(100svh - var(--navbar-h));
-  scroll-snap-align: start;
   scroll-margin-top: var(--navbar-h);
-  /* overflow-y:auto (not hidden) is a safety valve, not the intended
-     path: at normal viewport heights content fits and no scrollbar
-     ever appears. On a short desktop window (browser not maximized,
-     an external display in a squat aspect ratio) the vh-based clamps
-     can't shrink text indefinitely, so without this the section would
-     silently clip and hide real content instead of letting it scroll
-     into view. */
   overflow-x: hidden;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   /* Reference mockups (About, Contact) anchor content near the top of
@@ -46,27 +29,7 @@ html {
 }
 
 @media (max-width: 640px) {
-  /* The one-screen-per-section guarantee targets standard desktop
-     sizes. On phones, forcing every section into a hard-clipped
-     viewport-height box would make dense sections illegible, so mobile
-     falls back to a natural height with normal scrolling instead. */
-  html {
-    /* Below this breakpoint section_scroll.js's wheel-jacking is
-       inert (touch scroll doesn't fire wheel events anyway) and
-       sections no longer share a uniform height, so there's no JS
-       coordinating snap points anymore. Leaving snap on here fights
-       navbar.js's scrollIntoView calls (landing on an intermediate
-       section instead of the target) and pulls touch scrolling
-       toward section boundaries before the user can stop mid-section
-       to read. */
-    scroll-snap-type: none;
-  }
-
   .section {
-    height: auto;
-    min-height: calc(100svh - var(--navbar-h));
-    scroll-snap-align: none;
-    overflow: visible;
     padding-block: 2rem;
   }
 }
