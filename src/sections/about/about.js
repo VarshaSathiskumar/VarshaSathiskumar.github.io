@@ -2,7 +2,6 @@ const about_content = {
   first_name: "Varsha",
   last_name: "Sathiskumar",
   title: "Full Stack Software Engineer",
-  location: "Denver, Colorado",
   summary:
     "Software Engineer with 4+ years building scalable full-stack enterprise and B2B applications, now expanding that foundation into GenAI and Agentic AI systems that solve complex, real-world problems.",
   stats: [
@@ -16,13 +15,13 @@ const about_content = {
     {
       label: "Focus",
       value: "Full Stack, Agentic AI and Cloud",
-      value_style: "black",
+      value_style: "accent",
       description: ""
     },
     {
       label: "Education",
       value: "MS in CS",
-      value_style: "black",
+      value_style: "accent",
       description: "Colorado School of Mines — Dec 2026"
     }
   ],
@@ -47,8 +46,6 @@ const render_about = (about_root) => {
     <div class="about__grid">
       <div class="about__hero">
         <div class="about__content" data-reveal-group>
-          <span class="about__location" data-reveal="fade">${about_content.location}</span>
-
           <span class="about__greeting" data-reveal="fade">Hi, I'm</span>
 
           <h1 class="about__name" data-reveal>
@@ -89,11 +86,23 @@ const render_about = (about_root) => {
       class="about__portrait-image"
     />
     <div class="about__portrait-bubble" data-reveal="pop" role="button" tabindex="0" aria-label="Talk to my AI voice agent">
-      <span class="about__portrait-bubble-message is-active">Welcome to my portfolio!</span>
-      <span class="about__portrait-bubble-message">Talk to my AI Voice Agent</span>
+      <span class="about__portrait-bubble-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z"/>
+          <path d="M19 11a7 7 0 0 1-14 0"/>
+          <line x1="12" y1="18" x2="12" y2="22"/>
+        </svg>
+      </span>
+      <span class="about__portrait-bubble-text">
+        <span class="about__portrait-bubble-message">Talk to my AI Voice Agent</span>
+      </span>
+      <span class="about__portrait-bubble-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </span>
     </div>
   </div>
-  <p class="about__portrait-hint" data-reveal="fade">Click the bubble to talk to my AI voice agent</p>
 </div>
      </div>
 
@@ -102,23 +111,6 @@ const render_about = (about_root) => {
       </div>
     </div>
   `
-}
-
-const bubble_message_hold_ms = 2800
-
-const start_bubble_message_cycle = (about_root) => {
-  const messages = Array.from(about_root.querySelectorAll(".about__portrait-bubble-message"))
-  if (messages.length < 2) return
-
-  let active_index = messages.findIndex((message) => message.classList.contains("is-active"))
-  if (active_index === -1) active_index = 0
-
-  window.setInterval(() => {
-    const next_index = (active_index + 1) % messages.length
-    messages[active_index].classList.remove("is-active")
-    messages[next_index].classList.add("is-active")
-    active_index = next_index
-  }, bubble_message_hold_ms)
 }
 
 const attach_cta_listener = (about_root) => {
@@ -144,5 +136,4 @@ export const initialize_about = () => {
 
   render_about(about_root)
   attach_cta_listener(about_root)
-  start_bubble_message_cycle(about_root)
 }

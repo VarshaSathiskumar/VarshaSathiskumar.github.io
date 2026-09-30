@@ -1,5 +1,5 @@
 #about {
-  padding: clamp(0.9rem, 2.6vh, 2rem) clamp(1.5rem, 4vw, 3.5rem);
+  padding: clamp(1.4rem, 3.6vh, 2.75rem) clamp(1.5rem, 4vw, 3.5rem);
   overflow: hidden;
 }
 
@@ -9,31 +9,21 @@
   flex: 1;
   min-height: 0;
   justify-content: center;
-  gap: clamp(1.6rem, 3.6vh, 2.6rem);
+  gap: clamp(2.2rem, 5vh, 3.75rem);
 }
 
 .about__hero {
   display: grid;
-  grid-template-columns: 1fr clamp(13rem, 32vw, 23rem);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: stretch;
+  grid-template-columns: minmax(0, 1fr) clamp(16rem, 38vw, 30rem);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
 }
 
 /* ---- Name / intro ---- */
 
-.about__location {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: clamp(0.7rem, 0.35vw + 0.35vh, 0.8rem);
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
 .about__greeting {
   display: block;
-  margin: clamp(0.8rem, 3vh, 1.6rem) 0 0;
+  margin: 0;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: clamp(1rem, 0.55vw + 0.55vh, 1.25rem);
@@ -73,14 +63,14 @@
 }
 
 .about__name-rule {
-  margin: clamp(1.2rem, 3.4vh, 2rem) 0 0;
+  margin: clamp(1.5rem, 4vh, 2.4rem) 0 0;
   border: none;
-  border-top: var(--border-width) solid var(--border-color);
+  border-top: 1px solid var(--border-color-soft);
   width: 100%;
 }
 
 .about__title-line {
-  margin: clamp(1.2rem, 3vh, 1.8rem) 0 0;
+  margin: clamp(1.4rem, 3.4vh, 2rem) 0 0;
   font-family: var(--font-body);
   font-weight: 700;
   font-size: clamp(1.3rem, 0.9vw + 1vh, 1.6rem);
@@ -88,12 +78,12 @@
 }
 
 .about__summary {
-  margin: clamp(1rem, 2.6vh, 1.6rem) 0 0;
+  margin: clamp(1.1rem, 2.8vh, 1.7rem) 0 0;
   max-width: 38rem;
   font-family: var(--font-body);
   font-weight: 400;
   font-size: clamp(1rem, 0.6vw + 0.7vh, 1.12rem);
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--color-text-muted);
 }
 
@@ -103,22 +93,18 @@
 .about__stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: var(--border-width) solid var(--border-color);
-  border-bottom: var(--border-width) solid var(--border-color);
+  gap: clamp(0.9rem, 1.8vw, 1.25rem);
 }
 
 .about-stat-card {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: clamp(1.4rem, 3vh, 2.1rem) clamp(1.15rem, 1.9vw, 1.8rem) clamp(1.45rem, 3.2vh, 2.2rem);
+  padding: clamp(1.25rem, 2.6vh, 1.75rem) clamp(1.15rem, 1.9vw, 1.6rem);
   min-width: 0;
-  border-left: var(--border-width) solid var(--border-color);
-}
-
-.about-stat-card:first-child {
-  border-left: none;
-  padding-left: 0;
+  background: var(--color-white);
+  border: 1px solid var(--border-color-soft);
+  border-radius: var(--radius-soft-sm);
 }
 
 .about-stat-card__label {
@@ -149,7 +135,7 @@
 }
 
 .about-stat-card__value--black {
-  color: var(--color-accent);
+  color: var(--color-black);
 }
 
 .about-stat-card__value--accent {
@@ -223,14 +209,13 @@
 
 .about__portrait-wrap {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.5rem, 1.2vh, 0.75rem);
 }
 
 .about__portrait {
   position: relative;
+  z-index: 0;
   width: 100%;
   flex: 1;
   min-height: 16rem;
@@ -244,7 +229,25 @@
   background: transparent;
 }
 
+/* Large, low-opacity radial shape behind the portrait — provides depth
+   without a hard edge; the character overlaps it and stays fully in
+   front (see .about__portrait-image's z-index below). */
+.about__portrait::before {
+  content: "";
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  width: min(92%, 28rem);
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, var(--color-accent-pale-strong) 0%, var(--color-accent-pale) 62%, transparent 100%);
+  z-index: -1;
+}
+
 .about__portrait-image {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -253,92 +256,90 @@
   display: block;
 }
 
-.about__portrait-hint {
-  margin: 0;
-  max-width: 18rem;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: clamp(0.72rem, 0.35vw + 0.4vh, 0.82rem);
-  line-height: 1.4;
-  color: var(--color-accent);
-  text-align: center;
-}
-
-/* Speech-bubble accent over the illustration's head — see
-   src/sections/about/about.js (data-reveal="pop") for its scroll-entrance
-   and the message-cycling interval. Drawn from the site's own card
-   language (hard border + offset shadow) rather than an image, since its
-   two messages crossfade and need to be real text. Sized/positioned to
-   sit near the figure's head at every breakpoint; the box itself is a
-   fixed size so cycling between the two messages never resizes it. */
+/* Floating AI voice-agent pill — reads as one component with the
+   portrait and its background circle. See src/sections/about/about.js
+   (data-reveal="pop") for its scroll-entrance. */
 .about__portrait-bubble {
   position: absolute;
-  top: clamp(0.6rem, 4%, 1.25rem);
-  right: clamp(0.5rem, 5%, 1.25rem);
-  width: clamp(5.5rem, 7vw, 8.25rem);
-  min-height: 3.6rem;
+  top: clamp(-0.5rem, -2%, 0.5rem);
+  right: clamp(-0.6rem, -3%, 0.5rem);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.95rem 0.5rem 0.5rem;
   background: var(--color-white);
-  border: var(--border-width) solid var(--border-color);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-hard);
-  z-index: 1;
+  border: 1px solid var(--border-color-accent-soft);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-soft);
   cursor: pointer;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 200ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.about__portrait-bubble::after {
-  content: "";
-  position: absolute;
-  bottom: -0.42rem;
-  left: 1.1rem;
-  width: 0.75rem;
-  height: 0.75rem;
-  background: var(--color-white);
-  border-left: var(--border-width) solid var(--border-color);
-  border-bottom: var(--border-width) solid var(--border-color);
-  transform: rotate(-45deg);
+.about__portrait-bubble:hover,
+.about__portrait-bubble:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft-hover);
+  border-color: var(--border-color-accent-soft-hover);
 }
 
-/* The two messages fully overlap (inset: 0) so swapping which one is
-   `.is-active` never changes the bubble's box size — only opacity/transform
-   cross-fade. */
-.about__portrait-bubble-message {
-  /* Deliberately not var(--reveal-duration)/var(--reveal-ease): those
-     inherit from this bubble's own data-reveal="pop" (a bouncy overshoot
-     for the one-time scroll entrance), which would leak into this
-     continuous crossfade loop and make it read as bouncy instead of the
-     calm, professional fade this needs — so it's pinned to its own
-     values instead. */
-  --bubble-message-duration: 550ms;
-  --bubble-message-ease: cubic-bezier(0.16, 1, 0.3, 1);
+.about__portrait-bubble:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
 
-  position: absolute;
-  inset: 0;
+.about__portrait-bubble-icon {
+  flex: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.45rem 0.6rem;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: clamp(0.6rem, 0.75vw, 0.7rem);
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--color-accent-pale-strong);
+  color: var(--color-accent-strong);
+}
+
+.about__portrait-bubble-icon svg {
+  width: 55%;
+  height: 55%;
+}
+
+.about__portrait-bubble-message {
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(0.72rem, 0.4vw + 0.35vh, 0.82rem);
   line-height: 1.3;
   color: var(--color-black);
-  text-align: center;
-  opacity: 0;
-  transform: translateY(0.35rem);
-  transition: opacity var(--bubble-message-duration) var(--bubble-message-ease),
-    transform var(--bubble-message-duration) var(--bubble-message-ease);
-  pointer-events: none;
   user-select: none;
 }
 
-.about__portrait-bubble-message.is-active {
-  opacity: 1;
-  transform: translateY(0);
+.about__portrait-bubble-arrow {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-strong);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about__portrait-bubble-arrow svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.about__portrait-bubble:hover .about__portrait-bubble-arrow,
+.about__portrait-bubble:focus-visible .about__portrait-bubble-arrow {
+  transform: translateX(3px);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .about__portrait-bubble-message {
-    transition: opacity var(--bubble-message-duration) linear;
+  .about__portrait-bubble,
+  .about__portrait-bubble-arrow {
+    transition: none;
     transform: none;
   }
 }
@@ -350,10 +351,11 @@
     grid-template-columns: 1fr;
   }
 
+  /* Content stays in source order (first); the portrait/voice-agent
+     component follows beneath it. */
   .about__portrait-wrap {
-    order: -1;
-    width: clamp(10.5rem, 66vw, 18.5rem);
-    margin: 0 auto;
+    width: clamp(11.5rem, 66vw, 19.5rem);
+    margin: clamp(1.5rem, 5vh, 2.5rem) auto 0;
   }
 
   .about__portrait {
@@ -365,45 +367,28 @@
     max-height: none;
   }
 
-  .about__portrait-hint {
-    max-width: 14rem;
+  .about__portrait-bubble {
+    padding: 0.4rem 0.7rem 0.4rem 0.4rem;
+    gap: 0.4rem;
   }
 
-  .about__portrait-bubble {
-    width: clamp(5rem, 18vw, 7rem);
-    min-height: 3.3rem;
+  .about__portrait-bubble-icon {
+    width: 1.6rem;
+    height: 1.6rem;
   }
 
   .about__portrait-bubble-message {
-    font-size: clamp(0.56rem, 2vw, 0.66rem);
-    padding: 0.4rem 0.5rem;
+    font-size: clamp(0.62rem, 2vw, 0.7rem);
   }
 
   .about__stats {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about-stat-card:nth-child(2n+1) {
-    border-left: none;
-    padding-left: 0;
   }
 }
 
 @media (max-width: 640px) {
   .about__stats {
     grid-template-columns: 1fr;
-  }
-
-  .about-stat-card {
-    border-left: none;
-    padding-left: 0;
-    border-top: 1px solid var(--border-color);
-    padding-top: clamp(1rem, 2.2vh, 1.5rem);
-  }
-
-  .about-stat-card:first-child {
-    border-top: none;
-    padding-top: 0;
   }
 
   .about__actions {

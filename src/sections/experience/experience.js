@@ -25,7 +25,7 @@ const experience_content = {
         "Built a full-stack healthcare application surfacing AI-generated differential diagnoses and medical evidence, aimed at enabling earlier diagnosis.",
       accomplishments: [
         "Engineered a RAG pipeline across 1,700+ medical papers covering 59 diseases, improving recall by 20% across 1,000 cases.",
-        "Architected a multi-agent diagnostic debate system, raising diagnostic accuracy from 68% to 78% across 800 clinical cases."
+        "Architected a multi-agent diagnostic debate system, raising diagnostic accuracy from 68% to 85% across 800 clinical cases."
       ]
     },
     {

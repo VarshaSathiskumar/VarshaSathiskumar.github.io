@@ -9,40 +9,42 @@ const nav_items = [
 const render_navbar = (navbar_root) => {
   navbar_root.innerHTML = `
     <nav class="navbar">
-      <div class="navbar__brand">
-        <span class="navbar__wordmark">Portfolio</span>
-        <span class="navbar__badge">
-          <span class="navbar__badge-dot"></span>
-          OPEN TO WORK
-        </span>
-      </div>
+      <div class="navbar__inner">
+        <div class="navbar__brand">
+          <span class="navbar__wordmark">Portfolio</span>
+          <span class="navbar__badge">
+            <span class="navbar__badge-dot"></span>
+            OPEN TO WORK
+          </span>
+        </div>
 
-      <button
-        type="button"
-        class="navbar__toggle"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="navbar-menu"
-      >
-        <span class="navbar__toggle-line"></span>
-        <span class="navbar__toggle-line"></span>
-        <span class="navbar__toggle-line"></span>
-      </button>
+        <button
+          type="button"
+          class="navbar__toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navbar-menu"
+        >
+          <span class="navbar__toggle-line"></span>
+          <span class="navbar__toggle-line"></span>
+          <span class="navbar__toggle-line"></span>
+        </button>
 
-      <div class="navbar__menu" id="navbar-menu">
-        <ul class="navbar__links">
-          ${nav_items
-            .map(
-              (nav_item) => `
-                <li>
-                  <a href="#${nav_item.section_id}" class="navbar__link" data-nav-link="${nav_item.section_id}">
-                    ${nav_item.label}
-                  </a>
-                </li>
-              `
-            )
-            .join("")}
-        </ul>
+        <div class="navbar__menu" id="navbar-menu">
+          <ul class="navbar__links">
+            ${nav_items
+              .map(
+                (nav_item) => `
+                  <li>
+                    <a href="#${nav_item.section_id}" class="navbar__link" data-nav-link="${nav_item.section_id}">
+                      ${nav_item.label}
+                    </a>
+                  </li>
+                `
+              )
+              .join("")}
+          </ul>
+        </div>
       </div>
     </nav>
   `

@@ -1,9 +1,4 @@
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: 1.6rem 3rem;
   background: var(--color-white);
   border-bottom: 1px solid #e5e5e5;
   position: fixed;
@@ -11,6 +6,14 @@
   left: 0;
   right: 0;
   z-index: 100;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.75rem clamp(1.5rem, 4vw, 3.5rem);
 }
 
 .navbar__brand {
@@ -52,7 +55,7 @@
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 2.25rem;
+  gap: 2.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -121,8 +124,7 @@
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    position: fixed;
+  .navbar__inner {
     padding: 1rem 1.25rem;
   }
 
@@ -169,7 +171,7 @@
 }
 
 @media (max-width: 360px) {
-  .navbar {
+  .navbar__inner {
     gap: 0.75rem;
     padding: 1rem 0.85rem;
   }
