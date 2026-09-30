@@ -264,6 +264,22 @@
   color: var(--color-text-muted);
 }
 
+.project-card__status-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: clamp(0.6rem, 1.3vh, 0.85rem);
+  padding: clamp(0.4rem, 0.9vh, 0.5rem) clamp(0.7rem, 1.4vw, 0.9rem);
+  border: 1.5px solid var(--project-color);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(0.7rem, 0.35vw + 0.3vh, 0.8rem);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--project-color);
+}
+
 .project-card__tech-label {
   margin-top: clamp(0.6rem, 1.3vh, 0.85rem);
   font-family: var(--font-mono);

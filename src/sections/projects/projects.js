@@ -19,8 +19,8 @@ const projects_content = {
       one_liner:
         "Elevate diagnostic precision for chronic pain patients — an evidence-based differential diagnosis before the consultation even begins.",
       description:
-        "Built an end-to-end diagnostic pipeline integrating RAG, multi-agent orchestration, and automated evaluation, improving diagnostic accuracy from 68% to 78% across 1,000 clinical cases.",
-      key_metric: { value: "78%", label: "Diagnostic Accuracy" },
+        "Built an end-to-end diagnostic pipeline integrating RAG, multi-agent orchestration, and automated evaluation, improving diagnostic accuracy from 68% to 85% across 1,000 clinical cases.",
+      key_metric: { value: "85%", label: "Diagnostic Accuracy" },
       impact: { value: "2026", label: "Minnesota Cup Semifinalist" },
       tech: ["React", "TypeScript", "Python", "LangChain", "LangGraph", "Pinecone"],
       link: { url: "https://nociquant.com/", label: "View_Project" }
@@ -48,14 +48,41 @@ const projects_content = {
       one_liner: "Personal portfolio website with an integrated AI voice agent.",
       description:
         "Automated development workflows using Claude Code and built a RAG-powered OpenAI voice agent that retrieves portfolio and resume context to answer questions about my experience, projects, and technical background through natural conversation.",
-      key_metric: { value: "In Progress", label: "" },
-      impact: { value: "In Progress", label: "" },
+      status: "Voice Cloning In Progress",
       tech: ["Claude Code", "CSS", "JavaScript", "HTML", "OpenAI", "Formspree"],
       link: { url: "https://github.com/VarshaSathiskumar/VarshaSathiskumar.github.io", label: "View_Project" }
     },
     {
       category: "personal",
       number: "02",
+      color: "var(--color-metric-green)",
+      year: "2026",
+      name: "Outcrop Analog — Geospatial Web Platform",
+      one_liner: "An interactive GIS platform for exploring geological survey data across the Delaware Mountain Group.",
+      description:
+        "Engineered an ETL pipeline consolidating 2TB+ of geological data from 30+ source files, and built a 12-layer interactive map reducing query time from 40 minutes to 2 seconds.",
+      key_metric: { value: "99%", label: "Faster Query Time" },
+      impact: { value: "2TB+", label: "Geological Data Consolidated" },
+      tech: ["React", "FastAPI", "Mapbox GL JS", "PostgreSQL", "Supabase", "PostGIS"],
+      link: { url: "https://github.com/Brushy-Canyon-GIS/Web", label: "GITHUB_URL" }
+    },
+    {
+      category: "personal",
+      number: "03",
+      color: "var(--color-metric-magenta)",
+      year: "2026",
+      name: "Deep Research Multi-Agent",
+      one_liner: "A multi-agent AI system that researches topics and synthesizes findings into structured reports.",
+      description:
+        "Built a four-agent research pipeline that combines uploaded documents with web search to discover relevant papers, analyze research gaps and future opportunities, and generate synthesized reports using structured LLM outputs.",
+      key_metric: { value: "4", label: "Specialized AI Agents" },
+      impact: { value: "Multi-Source", label: "Document + Web Retrieval" },
+      tech: ["LangGraph", "OpenAI", "Streamlit"],
+      link: { url: "https://github.com/VarshaSathiskumar/deep-research-multi-agent", label: "GITHUB_URL" }
+    },
+    {
+      category: "personal",
+      number: "04",
       color: "var(--color-metric-orange)",
       year: "2026",
       name: "Product Review Summarization Platform",
@@ -70,7 +97,7 @@ const projects_content = {
     },
     {
       category: "personal",
-      number: "03",
+      number: "05",
       color: "var(--color-metric-purple)",
       year: "2025",
       name: "Assessing Response Consistency across Query Variants in LLMs",
@@ -84,7 +111,7 @@ const projects_content = {
     },
     {
       category: "personal",
-      number: "04",
+      number: "06",
       color: "var(--color-metric-magenta)",
       year: "2020",
       name: "Leaf Disease Detection (CNN)",
@@ -98,20 +125,6 @@ const projects_content = {
         url: "https://www.researchgate.net/publication/345674817_Automatic_Detection_of_Leaf_Disease_Using_CNN_Algorithm",
         label: "View_Paper"
       }
-    },
-    {
-      category: "personal",
-      number: "05",
-      color: "var(--color-metric-green)",
-      year: "2026",
-      name: "Outcrop Analog — Geospatial Web Platform",
-      one_liner: "An interactive GIS platform for exploring geological survey data across the Delaware Mountain Group.",
-      description:
-        "Engineered an ETL pipeline consolidating 2TB+ of geological data from 30+ source files, and built a 12-layer interactive map reducing query time from 40 minutes to 2 seconds.",
-      key_metric: { value: "99%", label: "Faster Query Time" },
-      impact: { value: "2TB+", label: "Geological Data Consolidated" },
-      tech: ["React", "FastAPI", "Mapbox GL JS", "PostgreSQL", "Supabase", "PostGIS"],
-      link: { url: "https://outcropanalog.com/", label: "View_Demo" }
     }
   ]
 }
@@ -159,16 +172,22 @@ const render_project_card = (project) => `
 
       <p class="project-card__description">${project.description}</p>
 
-      <div class="project-card__metrics">
-        <div class="project-card__metric-box">
-          <span class="project-card__metric-value">${project.key_metric.value}</span>
-          <span class="project-card__metric-label">${project.key_metric.label}</span>
-        </div>
-        <div class="project-card__metric-box">
-          <span class="project-card__metric-value">${project.impact.value}</span>
-          <span class="project-card__metric-label">${project.impact.label}</span>
-        </div>
-      </div>
+      ${
+        project.status
+          ? `<span class="project-card__status-badge">${project.status}</span>`
+          : `
+            <div class="project-card__metrics">
+              <div class="project-card__metric-box">
+                <span class="project-card__metric-value">${project.key_metric.value}</span>
+                <span class="project-card__metric-label">${project.key_metric.label}</span>
+              </div>
+              <div class="project-card__metric-box">
+                <span class="project-card__metric-value">${project.impact.value}</span>
+                <span class="project-card__metric-label">${project.impact.label}</span>
+              </div>
+            </div>
+          `
+      }
 
       <span class="project-card__tech-label">Technologies</span>
       <div class="project-card__tech-tags">
