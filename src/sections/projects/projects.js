@@ -50,7 +50,7 @@ const projects_content = {
         "Built a real-time GitHub analytics platform, implementing event-driven ingestion, deduplication, windowed aggregations, and gRPC-based inter-service health checks.",
       key_metric: { value: "768 events/sec", label: "WebSockets for live updates" },
       impact: { value: "26 ms p50 latency", label: "Redis for real-time counters" },
-      tech: [" React", "Java", "Spring Boot", "Apache Kafka","Kafka Streams "],
+      tech: ["React", "Java", "Spring Boot", "Apache Kafka", "Kafka Streams"],
       link: { url: "https://github-real-time-monitor.vercel.app/", label: "Live_Demo" }
     },
     {
@@ -72,8 +72,8 @@ const projects_content = {
       number: "03",
       color: "var(--color-metric-magenta)",
       year: "2026",
-      name: "CartRadar ",
-      one_liner: "A AI-Powered Grocery Assistant.",
+      name: "CartRadar",
+      one_liner: "An AI-Powered Grocery Assistant.",
       description:
         "Built a grocery assistant app integrated with Amazon's Bee wearable to extract grocery items from conversations, manage shopping lists, and trigger geofencing-based notifications.",
       key_metric: { value: "98%", label: "Extraction Accuracy" },
@@ -88,15 +88,14 @@ const projects_content = {
       year: "2026",
       name: "ResolveAI",
       one_liner:
-        "A Alexa+ Agentic Product Support.",
+        "An Alexa+ Agentic Product Support.",
       description:
-        "Built an Alexa+ conversational product support system with Agentic RAG and a self-hosted MCP server over Streamable HTTP,through dynamic tool selection, hybrid retrieval, and cross-encoder reranking.",
+        "Built an Alexa+ conversational product support system with Agentic RAG and a self-hosted MCP server over Streamable HTTP, through dynamic tool selection, hybrid retrieval, and cross-encoder reranking.",
       key_metric: { value: "57% to 86%", label: "Improved top-1 retrieval accuracy" },
       impact: { value: "50% to 100%", label: "Product ambiguity detection" },
       tech: ["LangChain", "Python", "FastAPI", "SQLite"],
       link: { url: "https://github.com/VarshaSathiskumar/ResolveAI", label: "GitHub_URL" }
-    },
-    
+    }
   ]
 }
 
