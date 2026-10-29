@@ -19,9 +19,9 @@ const projects_content = {
       one_liner:
         "Elevate diagnostic precision for chronic pain patients — an evidence-based differential diagnosis before the consultation even begins.",
       description:
-        "Built an end-to-end diagnostic pipeline integrating RAG, multi-agent orchestration, and automated evaluation, improving diagnostic accuracy from 68% to 85% across 1,000 clinical cases.",
+        "Built an end-to-end diagnostic pipeline integrating RAG, multi-agent orchestration, and automated evaluation, improving diagnostic accuracy from 68% to 85% across 10K clinical cases.",
       key_metric: { value: "85%", label: "Diagnostic Accuracy" },
-      impact: { value: "2026", label: "Minnesota Cup Semifinalist" },
+      impact: { value: "48%", label: "Increase in Retrieval recall" },
       tech: ["React", "TypeScript", "Python", "LangChain", "LangGraph", "Pinecone"],
       link: { url: "https://nociquant.com/", label: "View_Project" }
     },
@@ -44,13 +44,14 @@ const projects_content = {
       number: "01",
       color: "var(--color-metric-blue)",
       year: "2026",
-      name: "Voice AI Agent Integrated Website",
-      one_liner: "Personal portfolio website with an integrated AI voice agent.",
+      name: "Real-Time Analytics Monitoring Platform",
+      one_liner: "A GitHub real-time analytics platform.",
       description:
-        "Automated development workflows using Claude Code and built a RAG-powered OpenAI voice agent that retrieves portfolio and resume context to answer questions about my experience, projects, and technical background through natural conversation.",
-      status: "Voice Cloning In Progress",
-      tech: ["Claude Code", "CSS", "JavaScript", "HTML", "OpenAI", "Formspree"],
-      link: { url: "https://github.com/VarshaSathiskumar/VarshaSathiskumar.github.io", label: "View_Project" }
+        "Built a real-time GitHub analytics platform, implementing event-driven ingestion, deduplication, windowed aggregations, and gRPC-based inter-service health checks.",
+      key_metric: { value: "768 events/sec", label: "WebSockets for live updates" },
+      impact: { value: "26 ms p50 latency", label: "Redis for real-time counters" },
+      tech: [" React", "Java", "Spring Boot", "Apache Kafka","Kafka Streams "],
+      link: { url: "https://github-real-time-monitor.vercel.app/", label: "Live_Demo" }
     },
     {
       category: "personal",
@@ -64,68 +65,38 @@ const projects_content = {
       key_metric: { value: "99%", label: "Faster Query Time" },
       impact: { value: "2TB+", label: "Geological Data Consolidated" },
       tech: ["React", "FastAPI", "Mapbox GL JS", "PostgreSQL", "Supabase", "PostGIS"],
-      link: { url: "https://github.com/Brushy-Canyon-GIS/Web", label: "GITHUB_URL" }
+      link: { url: "https://outcropanalog.com/", label: "Live_Demo" }
     },
     {
       category: "personal",
       number: "03",
       color: "var(--color-metric-magenta)",
       year: "2026",
-      name: "Deep Research Multi-Agent",
-      one_liner: "A multi-agent AI system that researches topics and synthesizes findings into structured reports.",
+      name: "CartRadar ",
+      one_liner: "A AI-Powered Grocery Assistant.",
       description:
-        "Built a four-agent research pipeline that combines uploaded documents with web search to discover relevant papers, analyze research gaps and future opportunities, and generate synthesized reports using structured LLM outputs.",
-      key_metric: { value: "4", label: "Specialized AI Agents" },
+        "Built a grocery assistant app integrated with Amazon's Bee wearable to extract grocery items from conversations, manage shopping lists, and trigger geofencing-based notifications.",
+      key_metric: { value: "98%", label: "Extraction Accuracy" },
       impact: { value: "Multi-Source", label: "Document + Web Retrieval" },
-      tech: ["LangGraph", "OpenAI", "Streamlit"],
-      link: { url: "https://github.com/VarshaSathiskumar/deep-research-multi-agent", label: "GITHUB_URL" }
+      tech: ["React Native", "TypeScript", "OpenAI APIs", "Supabase"],
+      link: { url: "https://cartradar-five.vercel.app", label: "Live_Demo" }
     },
     {
       category: "personal",
       number: "04",
       color: "var(--color-metric-orange)",
       year: "2026",
-      name: "Product Review Summarization Platform",
+      name: "ResolveAI",
       one_liner:
-        "A distributed NLP pipeline turning 22GB of Amazon reviews into product-level sentiment intelligence for buyers and stakeholders.",
+        "A Alexa+ Agentic Product Support.",
       description:
-        "Built dashboards analyzing 12 product categories — visualizing sentiment trends, review activity, complaint rates, and semantic clusters — powered by Llama 3.1, BGE-M3, and BERTopic.",
-      key_metric: { value: "84%", label: "Sentiment Accuracy" },
-      impact: { value: "22GB", label: "Reviews Processed" },
-      tech: ["Llama 3.1", "BGE-M3", "BERTopic"],
-      link: { url: "https://github.com/VarshaSathiskumar/product-review-intelligence-platform", label: "GitHub_URL" }
+        "Built an Alexa+ conversational product support system with Agentic RAG and a self-hosted MCP server over Streamable HTTP,through dynamic tool selection, hybrid retrieval, and cross-encoder reranking.",
+      key_metric: { value: "57% to 86%", label: "Improved top-1 retrieval accuracy" },
+      impact: { value: "50% to 100%", label: "Product ambiguity detection" },
+      tech: ["LangChain", "Python", "FastAPI", "SQLite"],
+      link: { url: "https://github.com/VarshaSathiskumar/ResolveAI", label: "GitHub_URL" }
     },
-    {
-      category: "personal",
-      number: "05",
-      color: "var(--color-metric-purple)",
-      year: "2025",
-      name: "Assessing Response Consistency across Query Variants in LLMs",
-      one_liner: "An automated benchmarking pipeline comparing LLM response consistency across paraphrased queries.",
-      description:
-        "Built a pipeline benchmarking 5 OpenAI models across 10,000+ paraphrased queries, using DuckDB and Apache Arrow UDFs to enable faster model and prompt-consistency analysis.",
-      key_metric: { value: "52%", label: "Faster Processing Time" },
-      impact: { value: "10,000+", label: "Paraphrased Queries Evaluated" },
-      tech: ["Python", "DuckDB", "Apache Arrow"],
-      link: { url: "https://github.com/VarshaSathiskumar/LLM-response-evaluation-metrics-using-Arrow-UDF-in-DUCKDB", label: "GitHub_URL" }
-    },
-    {
-      category: "personal",
-      number: "06",
-      color: "var(--color-metric-magenta)",
-      year: "2020",
-      name: "Leaf Disease Detection (CNN)",
-      one_liner: "A deep learning model for early detection of plant leaf disease from images.",
-      description:
-        "Designed an 8-layer CNN trained on 30,000+ leaf images across apple, corn, and tomato, achieving 96–98% classification accuracy. Published at Springer ICTIS 2020.",
-      key_metric: { value: "98%", label: "Classification Accuracy" },
-      impact: { value: "30,000+", label: "Leaf Images Analyzed" },
-      tech: ["Python", "TensorFlow", "PyTorch", "CNN"],
-      link: {
-        url: "https://www.researchgate.net/publication/345674817_Automatic_Detection_of_Leaf_Disease_Using_CNN_Algorithm",
-        label: "View_Paper"
-      }
-    }
+    
   ]
 }
 
