@@ -1,9 +1,9 @@
 const about_content = {
   first_name: "Varsha",
   last_name: "Sathiskumar",
-  title: "Full Stack Software Engineer",
+  title: "Software Engineer - FullStack | Distributed System | AI agents",
   summary:
-    "Software Engineer with 4+ years building scalable full-stack enterprise and B2B applications, now expanding that foundation into GenAI and Agentic AI systems that solve complex, real-world problems.",
+    "Full-Stack Software Engineer with 4+ years of experience building scalable enterprise web applications, owning end-to-end features, developing REST APIs, and modernizing backend services using microservices and cloud technologies.",
   stats: [
     {
       label: "Experience",
@@ -14,7 +14,7 @@ const about_content = {
     },
     {
       label: "Focus",
-      value: "Full Stack, Agentic AI and Cloud",
+      value: "Full Stack, Distributed Systems, AI agents",
       value_style: "accent",
       description: ""
     },
