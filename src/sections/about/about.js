@@ -26,7 +26,9 @@ const about_content = {
     }
   ],
   github_url: "https://github.com/VarshaSathiskumar",
-  linkedin_url: "https://www.linkedin.com/in/varsha-sathiskumar/"
+  linkedin_url: "https://www.linkedin.com/in/varsha-sathiskumar/",
+  /* Set to the path of the professional photo to replace the placeholder. */
+  headshot_url: "src/assets/headshot/C9908892-14A6-4F63-9E3A-CFA8EA032173.jpg"
 }
 
 const render_stat_card = (stat) => {
@@ -38,6 +40,19 @@ const render_stat_card = (stat) => {
       <span class="about-stat-card__value about-stat-card__value--${stat.value_style}${variant_class}">${stat.value}</span>
       <span class="about-stat-card__description">${stat.description}</span>
     </div>
+  `
+}
+
+const render_headshot = () => {
+  if (about_content.headshot_url) {
+    return `<img src="${about_content.headshot_url}" alt="Portrait of ${about_content.first_name} ${about_content.last_name}" class="about__headshot-image" />`
+  }
+
+  return `
+    <svg class="about__headshot-placeholder" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Professional headshot placeholder">
+      <circle cx="12" cy="9" r="4"/>
+      <path d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7Z"/>
+    </svg>
   `
 }
 
@@ -76,34 +91,30 @@ const render_about = (about_root) => {
         </div>
 
         <div class="about__portrait-wrap">
-  <div
-    class="about__portrait"
-    aria-label="Illustration of Varsha welcoming visitors to her portfolio"
-  >
-    <img
-      src="src/assets/company-logos/figure.png"
-      alt="Illustration of Varsha"
-      class="about__portrait-image"
-    />
-    <div class="about__portrait-bubble" data-reveal="pop" role="button" tabindex="0" aria-label="Talk to my AI voice agent">
-      <span class="about__portrait-bubble-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z"/>
-          <path d="M19 11a7 7 0 0 1-14 0"/>
-          <line x1="12" y1="18" x2="12" y2="22"/>
-        </svg>
-      </span>
-      <span class="about__portrait-bubble-text">
-        <span class="about__portrait-bubble-message">Talk to my AI Voice Agent</span>
-      </span>
-      <span class="about__portrait-bubble-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
+          <div class="about__headshot-ring">
+            <div class="about__headshot">
+              ${render_headshot()}
+            </div>
+          </div>
+
+          <div class="about__portrait-bubble" data-reveal="pop" role="button" tabindex="0" aria-label="Talk to my AI voice agent">
+            <span class="about__portrait-bubble-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z"/>
+                <path d="M19 11a7 7 0 0 1-14 0"/>
+                <line x1="12" y1="18" x2="12" y2="22"/>
+              </svg>
+            </span>
+            <span class="about__portrait-bubble-text">
+              <span class="about__portrait-bubble-message">Talk to my AI Voice Agent</span>
+            </span>
+            <span class="about__portrait-bubble-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </span>
+          </div>
+        </div>
      </div>
 
       <div class="about__stats" data-reveal-group>
