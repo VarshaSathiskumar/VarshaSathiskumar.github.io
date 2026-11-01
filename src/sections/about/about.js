@@ -28,7 +28,7 @@ const about_content = {
   github_url: "https://github.com/VarshaSathiskumar",
   linkedin_url: "https://www.linkedin.com/in/varsha-sathiskumar/",
   /* Set to the path of the professional photo to replace the placeholder. */
-  headshot_url: "src/assets/headshot/C9908892-14A6-4F63-9E3A-CFA8EA032173.jpg"
+  headshot_url: "src/assets/headshot/IMG_1149.jpg"
 }
 
 const render_stat_card = (stat) => {
